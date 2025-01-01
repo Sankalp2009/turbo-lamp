@@ -6,7 +6,6 @@ function App() {
   const [data, setData] = useState([]);
 
 
-
   const HandleInputChange= (InputData) => {
     setData(oldState=>[...oldState,InputData])
   };

@@ -53,9 +53,12 @@ const HandleInputChange = (InputData) => {
   setData([...data, InputData]);
 };
 
-* code1 is more efficient and optimize to Use
+* code1 is more efficient and optimize to Use.
+
 ## Explanation:
+
 - Functional Update: 
 The first statement uses a functional update (oldState => [...oldState, InputData]). This ensures that the state update is based on the most recent state, which is crucial in asynchronous environments like React where state updates might be batched.
+
 - Direct Update: 
 The second statement (setData([...data, InputData])) directly uses the current state (data). This can lead to potential issues if multiple state updates are triggered in quick succession, as it might not reflect the latest state due to React's asynchronous state updates.
