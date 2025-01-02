@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+
 const InitialState = () => ({
   name: "",
   course: "",
@@ -10,31 +11,32 @@ const InitialState = () => ({
   fail: false,
   country: "",
 });
-const DashForm = ({CallBack}) =>{
-  
-  const [isInput, setIsInput] = useState(InitialState);
 
+const DashForm = ({ CallBack }) => {
+  const [isInput, setIsInput] = useState(InitialState);
 
   const HandleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-  
+
     const newValue = type === "checkbox" ? checked : value;
-    
-    setIsInput((oldState) => {return{
+
+    setIsInput((oldState) => {
+      return {
         ...oldState,
-        [name] : newValue
-    }})
+        [name]: newValue,
+      };
+    });
   };
-  
+
   const HandleSubmit = (e) => {
-    e. preventDefault();
+    e.preventDefault();
     CallBack(isInput);
     setIsInput(InitialState);
-  }
+  };
 
-    return(
-        <>
-         <div>
+  return (
+    <>
+      <div>
         <h2>Student Dashboard</h2>
         <form id="form" onSubmit={HandleSubmit}>
           <input
@@ -48,7 +50,6 @@ const DashForm = ({CallBack}) =>{
           <br />
           <input
             type="text"
-          
             value={isInput.course}
             name="course"
             placeholder="Enter course"
@@ -106,8 +107,8 @@ const DashForm = ({CallBack}) =>{
           <input type="submit" value="submit" />
         </form>
       </div>
-        </>
-    )
-}
+    </>
+  );
+};
 
 export default DashForm;
