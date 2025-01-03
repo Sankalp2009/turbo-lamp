@@ -46,6 +46,36 @@ car("Ford", "Muscle Hatchback")
     )
 }
 
-### Component Extraction or props variation
+## Component Extraction or props variation
 
-  
+### Variation 1: same approach as followed
+
+* Parent : {Dash item={item}}
+* Child : const Item = (props) => (
+(li)
+(span)
+(a href={props.url}>{props.title} a)
+(span)
+(li)
+);
+
+### Variation 2: sending all the properties while map and destructure props in child
+
+* Parent : {list.map((item) => (
+(Item
+key={item.objectID}
+title={item.title}
+url={item.url}
+author={item.author}
+num_comments={item.num_comments}
+points={item.points}
+/>)
+))}
+
+* Child : const Item = ({ title, url, author, num_comments, points }) => (
+(li)
+(span)
+(a href={url}>{title} a)
+(span)
+(li)
+);
