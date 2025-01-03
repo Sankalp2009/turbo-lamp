@@ -45,3 +45,7 @@ car("Ford", "Muscle Hatchback")
       ....
     )
 }
+
+### Component Extraction or props variation
+
+  
