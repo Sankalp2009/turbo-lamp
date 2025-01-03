@@ -92,10 +92,4 @@ points={item.points}
 (Item key={objectID} {...item}/>)
 ))}
 
-* Child : const Item = ({ title, url, author, num_comments, points }) => (
-(li)
-(span)
-(a href={url}>{title} a)
-(span)
-(li)
-);
+* Child : Same as above
