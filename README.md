@@ -93,3 +93,5 @@ points={item.points}
 ))}
 
 * Child : Same as above
+
+## Context Api

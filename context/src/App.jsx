@@ -1,32 +1,18 @@
 // eslint-disable-next-line no-unused-vars
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './App.css'
 import List from './Components/List';
-// eslint-disable-next-line no-unused-vars
-const stories = [
-  {
-  title: 'React',
-  url: 'https://reactjs.org/',
-  author: 'Jordan Walke',
-  num_comments: 3,
-  points: 4,
-  objectID: 0,
-  },
-  {
-  title: 'Redux',
-  url: 'https://redux.js.org/',
-  author: 'Dan Abramov, Andrew Clark',
-  num_comments: 2,
-  points: 5,
-  objectID: 1,
-  },
-  ];
-  
+import { ListContext } from './Components/context';
+
 function App() {
+
+  const first = useContext(ListContext)
+
+  console.log(first);
 
   return (
     <>
-     <List list={stories} />
+     <List list={first.stories} />
     </>
   )
 }
