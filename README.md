@@ -79,3 +79,23 @@ points={item.points}
 (span)
 (li)
 );
+
+### Variation 3: sending spread properties while map and destructure props in child(same as var 2)
+
+* Parent : {list.map((item) => (
+(Item key={item.objectID} {...item}/>)
+))}
+
+----------or---------
+
+* Parent : {list.map(({objectID, ...item}) => (
+(Item key={objectID} {...item}/>)
+))}
+
+* Child : const Item = ({ title, url, author, num_comments, points }) => (
+(li)
+(span)
+(a href={url}>{title} a)
+(span)
+(li)
+);
