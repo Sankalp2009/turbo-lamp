@@ -4,7 +4,7 @@
 2. React is everything about Family Matter's (Parent-child-sibling communication)
 
 ## State 
-### Functional Update: 
+### Functional State Update Approach | Batch scheduling: 
 
 * The first statement uses a functional update (oldState => [...oldState, InputData]). This ensures that the state update is based on the most recent state, which is crucial in asynchronous environments like React where state updates might be batched.
 
