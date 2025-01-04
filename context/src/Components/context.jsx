@@ -25,7 +25,6 @@ const stories = [
 // eslint-disable-next-line react/prop-types
 const ListContextProvider = ({children})=>{
 
-    // eslint-disable-next-line no-unused-vars
     const [data,setData] = useState(stories)
 
     return(
