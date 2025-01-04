@@ -1,0 +1,388 @@
+1
+00:00:00,05 --> 00:00:02,02
+- [Instructor] We have seen with multiple examples
+
+2
+00:00:02,02 --> 00:00:03,04
+how to manage the states
+
+3
+00:00:03,04 --> 00:00:06,08
+with the React API with useState, with useReducer
+
+4
+00:00:06,08 --> 00:00:08,05
+and also useContext.
+
+5
+00:00:08,05 --> 00:00:10,07
+With useState, you can create local state variables
+
+6
+00:00:10,07 --> 00:00:13,04
+that remain attached to one component only.
+
+7
+00:00:13,04 --> 00:00:16,03
+And with useReducer, you can manage complex logic separate
+
+8
+00:00:16,03 --> 00:00:17,06
+from one component.
+
+9
+00:00:17,06 --> 00:00:20,05
+And useContext allows to create and share global state
+
+10
+00:00:20,05 --> 00:00:22,06
+without having to pass data down manually
+
+11
+00:00:22,06 --> 00:00:25,07
+from top to bottom with one single source of truth.
+
+12
+00:00:25,07 --> 00:00:28,01
+So every hook has its own benefits.
+
+13
+00:00:28,01 --> 00:00:30,04
+The React API has certain limitations though.
+
+14
+00:00:30,04 --> 00:00:32,07
+For example, component state can only be shared
+
+15
+00:00:32,07 --> 00:00:35,04
+by pushing it up to the common ancestor.
+
+16
+00:00:35,04 --> 00:00:38,01
+And that is the same challenge as with props really,
+
+17
+00:00:38,01 --> 00:00:39,05
+meaning that the state is kept
+
+18
+00:00:39,05 --> 00:00:43,00
+in one location to pass data down from top to bottom,
+
+19
+00:00:43,00 --> 00:00:45,06
+which is not very flexible.
+
+20
+00:00:45,06 --> 00:00:48,06
+And with context, you can only store one single value.
+
+21
+00:00:48,06 --> 00:00:50,09
+These limitations make it difficult to split the code
+
+22
+00:00:50,09 --> 00:00:52,09
+from the tree where the state leaves
+
+23
+00:00:52,09 --> 00:00:54,06
+from the leaves of the tree.
+
+24
+00:00:54,06 --> 00:00:56,02
+By leaves, I mean the components
+
+25
+00:00:56,02 --> 00:00:58,06
+where the state is consumed.
+
+26
+00:00:58,06 --> 00:01:01,01
+To go beyond the limitations of the React API,
+
+27
+00:01:01,01 --> 00:01:04,02
+new solutions like Recoil comes in very handy.
+
+28
+00:01:04,02 --> 00:01:05,06
+Recoil acts like React
+
+29
+00:01:05,06 --> 00:01:08,04
+with a seamless syntax, semantic and behavior
+
+30
+00:01:08,04 --> 00:01:12,00
+but with more capabilities and Recoil has the same simple
+
+31
+00:01:12,00 --> 00:01:15,03
+and minimal interface as with React with the get and sets.
+
+32
+00:01:15,03 --> 00:01:19,08
+So let me explain to you how it works.
+
+33
+00:01:19,08 --> 00:01:22,01
+Recoil is using atomic approach,
+
+34
+00:01:22,01 --> 00:01:24,02
+meaning that developers can define atoms
+
+35
+00:01:24,02 --> 00:01:26,07
+that represents pieces of data.
+
+36
+00:01:26,07 --> 00:01:27,06
+And so the atoms
+
+37
+00:01:27,06 --> 00:01:30,07
+are like independent objects containing the data.
+
+38
+00:01:30,07 --> 00:01:33,05
+Then the data is shared down into React components
+
+39
+00:01:33,05 --> 00:01:37,04
+through selectors, which are pure functions.
+
+40
+00:01:37,04 --> 00:01:39,02
+The library also provide with hooks
+
+41
+00:01:39,02 --> 00:01:40,07
+that makes it easy to access
+
+42
+00:01:40,07 --> 00:01:43,06
+and update the state from within React components.
+
+43
+00:01:43,06 --> 00:01:45,05
+So let's begin with a new example.
+
+44
+00:01:45,05 --> 00:01:48,05
+In the next example, we are building a to-do list.
+
+45
+00:01:48,05 --> 00:01:49,08
+The features are very simple.
+
+46
+00:01:49,08 --> 00:01:51,05
+We're going to have a list of items
+
+47
+00:01:51,05 --> 00:01:55,00
+and we have also the options to add new items
+
+48
+00:01:55,00 --> 00:01:57,01
+with options also to filter the list.
+
+49
+00:01:57,01 --> 00:02:00,07
+So we also enable the feature to cross items off the list
+
+50
+00:02:00,07 --> 00:02:03,02
+so to indicate that this is completed.
+
+51
+00:02:03,02 --> 00:02:06,02
+Then you can also delete the items that are completed
+
+52
+00:02:06,02 --> 00:02:08,02
+and decide to only filter
+
+53
+00:02:08,02 --> 00:02:11,04
+and display the items that are completed.
+
+54
+00:02:11,04 --> 00:02:15,01
+So this is a very basic example built with the React API.
+
+55
+00:02:15,01 --> 00:02:16,06
+Here the challenge is the same.
+
+56
+00:02:16,06 --> 00:02:19,04
+If you ever need to scale the app, you need an efficient way
+
+57
+00:02:19,04 --> 00:02:22,06
+to share data between components without making components
+
+58
+00:02:22,06 --> 00:02:24,02
+depending on each other.
+
+59
+00:02:24,02 --> 00:02:26,07
+So the first step is to make the application aware
+
+60
+00:02:26,07 --> 00:02:28,06
+of the state with RecoilRoot.
+
+61
+00:02:28,06 --> 00:02:30,03
+RecoilRoot is an important component
+
+62
+00:02:30,03 --> 00:02:31,08
+of the Recoil library.
+
+63
+00:02:31,08 --> 00:02:33,09
+It is a component that provides the context
+
+64
+00:02:33,09 --> 00:02:37,01
+in which atoms have values, and it must be apparent
+
+65
+00:02:37,01 --> 00:02:40,01
+of any component that uses any Recoil hook.
+
+66
+00:02:40,01 --> 00:02:41,05
+I will show you how.
+
+67
+00:02:41,05 --> 00:02:45,08
+First we want to make sure that we install the Recoil library.
+
+68
+00:02:45,08 --> 00:02:50,07
+Then we go into our projects.
+
+69
+00:02:50,07 --> 00:02:52,01
+Right here.
+
+70
+00:02:52,01 --> 00:02:57,01
+We're going to make sure that first we install Recoil.
+
+71
+00:02:57,01 --> 00:03:00,05
+So it looks like this is not possible to actually paste.
+
+72
+00:03:00,05 --> 00:03:05,04
+So I'm going to do npm i and recoil.
+
+73
+00:03:05,04 --> 00:03:09,01
+And next, while this is being installed,
+
+74
+00:03:09,01 --> 00:03:13,00
+I'm just going to grab, so let's go back to RecoilRoot.
+
+75
+00:03:13,00 --> 00:03:15,03
+And the way it should be is that you're going to add
+
+76
+00:03:15,03 --> 00:03:19,08
+to the scope of your entry point in your React project
+
+77
+00:03:19,08 --> 00:03:22,07
+and make sure that you wrap the app components.
+
+78
+00:03:22,07 --> 00:03:25,08
+So the root component with the RecoilRoot component.
+
+79
+00:03:25,08 --> 00:03:26,08
+Okay, so this is done.
+
+80
+00:03:26,08 --> 00:03:32,09
+So let's go find the index.js,
+
+81
+00:03:32,09 --> 00:03:35,02
+add this to the scope like this
+
+82
+00:03:35,02 --> 00:03:38,03
+and we're going to wrap the root component with RecoilRoot.
+
+83
+00:03:38,03 --> 00:03:39,07
+That's going to be the first step
+
+84
+00:03:39,07 --> 00:03:43,07
+in order to make any descending component aware
+
+85
+00:03:43,07 --> 00:03:45,02
+of the context.
+
+86
+00:03:45,02 --> 00:03:47,05
+And so any descending component can access
+
+87
+00:03:47,05 --> 00:03:49,03
+and update the state
+
+88
+00:03:49,03 --> 00:03:52,01
+by accessing the state through the RecoilRoot.
+
+89
+00:03:52,01 --> 00:03:53,01
+So in a nutshell,
+
+90
+00:03:53,01 --> 00:03:55,08
+Recoil is a tool that helps developers manage the state
+
+91
+00:03:55,08 --> 00:03:58,08
+in their React applications, making it easier
+
+92
+00:03:58,08 --> 00:04:01,09
+to build complex and robust user interfaces.
+
+93
+00:04:01,09 --> 00:04:03,01
+Coming next, we're going to see
+
+94
+00:04:03,01 --> 00:04:05,09
+how to divide the state management by using atoms.
+
+95
+00:04:05,09 --> 00:04:08,01
+So we're going to see how to create atoms
+
+96
+00:04:08,01 --> 00:04:11,07
+that are independent objects containing the state
+
+97
+00:04:11,07 --> 00:04:13,00
+of your app.
+

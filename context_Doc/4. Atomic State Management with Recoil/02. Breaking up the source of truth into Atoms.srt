@@ -1,0 +1,264 @@
+1
+00:00:00,05 --> 00:00:02,02
+- [Instructor] Atoms are like units of state.
+
+2
+00:00:02,02 --> 00:00:04,04
+They're like independent pieces of data
+
+3
+00:00:04,04 --> 00:00:07,00
+that we can update and to which we can subscribe.
+
+4
+00:00:07,00 --> 00:00:10,03
+So whenever there's a change in the states in an atom,
+
+5
+00:00:10,03 --> 00:00:13,08
+each subscribed component is re-rendered with the new value.
+
+6
+00:00:13,08 --> 00:00:17,02
+In this video, we learned to divide the state into atoms.
+
+7
+00:00:17,02 --> 00:00:20,00
+So we're going to look at the syntax, which is very simple.
+
+8
+00:00:20,00 --> 00:00:23,04
+It's like an object with two keys, two properties.
+
+9
+00:00:23,04 --> 00:00:26,00
+So the key will contain a unique ID,
+
+10
+00:00:26,00 --> 00:00:28,02
+which is used for debugging, persistence,
+
+11
+00:00:28,02 --> 00:00:30,08
+and other advanced features.
+
+12
+00:00:30,08 --> 00:00:33,06
+And you must also specify a default value.
+
+13
+00:00:33,06 --> 00:00:35,09
+So I'm going to copy this syntax
+
+14
+00:00:35,09 --> 00:00:38,00
+and we're going to go to our start projects.
+
+15
+00:00:38,00 --> 00:00:39,09
+And here you're going to see that the source code
+
+16
+00:00:39,09 --> 00:00:43,03
+is very familiar because you have several state variables
+
+17
+00:00:43,03 --> 00:00:45,02
+but which is available at the top level
+
+18
+00:00:45,02 --> 00:00:47,07
+of the root component, which isn't the best practice.
+
+19
+00:00:47,07 --> 00:00:50,06
+Instead, we want to manage the state outside
+
+20
+00:00:50,06 --> 00:00:51,07
+of every components
+
+21
+00:00:51,07 --> 00:00:54,01
+and allow every component to subscribe
+
+22
+00:00:54,01 --> 00:00:55,09
+to the different pieces of states
+
+23
+00:00:55,09 --> 00:00:58,02
+which are defined with the atoms.
+
+24
+00:00:58,02 --> 00:01:00,05
+So first, let's just make sure that we import
+
+25
+00:01:00,05 --> 00:01:05,04
+from the library, recoil.
+
+26
+00:01:05,04 --> 00:01:07,06
+That's going to be atom.
+
+27
+00:01:07,06 --> 00:01:11,01
+And we're going to add our first atom right here.
+
+28
+00:01:11,01 --> 00:01:12,09
+And the way we're going to proceed
+
+29
+00:01:12,09 --> 00:01:15,03
+is that every local state variable
+
+30
+00:01:15,03 --> 00:01:16,09
+is going to be replaced with an atom.
+
+31
+00:01:16,09 --> 00:01:18,05
+So first it's going to be the list.
+
+32
+00:01:18,05 --> 00:01:21,07
+So I'm going to name this one list
+
+33
+00:01:21,07 --> 00:01:24,01
+and I'm going to name the key the exact same way
+
+34
+00:01:24,01 --> 00:01:25,04
+which will be list.
+
+35
+00:01:25,04 --> 00:01:26,05
+And for the default value,
+
+36
+00:01:26,05 --> 00:01:29,03
+it's going to be this array of items.
+
+37
+00:01:29,03 --> 00:01:30,06
+I'm going to create another item
+
+38
+00:01:30,06 --> 00:01:35,04
+which will be to then manage the state for all.
+
+39
+00:01:35,04 --> 00:01:37,05
+And here for the features.
+
+40
+00:01:37,05 --> 00:01:39,01
+Basically we have two type of lists.
+
+41
+00:01:39,01 --> 00:01:41,02
+One which is to display the full list,
+
+42
+00:01:41,02 --> 00:01:43,07
+and another list which is to display the list
+
+43
+00:01:43,07 --> 00:01:45,06
+of items filtered.
+
+44
+00:01:45,06 --> 00:01:47,07
+And we have another variable here
+
+45
+00:01:47,07 --> 00:01:50,03
+which is used to indicate when the list is filtered.
+
+46
+00:01:50,03 --> 00:01:53,01
+So I'm going to define another atom
+
+47
+00:01:53,01 --> 00:01:55,07
+to manage this one separately.
+
+48
+00:01:55,07 --> 00:01:59,03
+So that's going to be filterStates.
+
+49
+00:01:59,03 --> 00:02:02,01
+And for this one, we have a default value, which is false.
+
+50
+00:02:02,01 --> 00:02:06,01
+So I'm going to do just like this one, it's going to be false.
+
+51
+00:02:06,01 --> 00:02:08,05
+And last, we have also an input value.
+
+52
+00:02:08,05 --> 00:02:11,02
+So I'm going to define this one below.
+
+53
+00:02:11,02 --> 00:02:14,00
+And this one, I'm going to actually name this one
+
+54
+00:02:14,00 --> 00:02:14,09
+a bit differently.
+
+55
+00:02:14,09 --> 00:02:20,07
+It's going to be inputValue for this atom.
+
+56
+00:02:20,07 --> 00:02:23,07
+And then for the default value is going to be an empty string,
+
+57
+00:02:23,07 --> 00:02:25,00
+just like this one.
+
+58
+00:02:25,00 --> 00:02:26,06
+So we're not going to remove that just yet.
+
+59
+00:02:26,06 --> 00:02:28,08
+So that's going to be actually part two.
+
+60
+00:02:28,08 --> 00:02:30,05
+We have just created atoms
+
+61
+00:02:30,05 --> 00:02:33,00
+in order to contain pieces of state,
+
+62
+00:02:33,00 --> 00:02:34,05
+and this is just step one.
+
+63
+00:02:34,05 --> 00:02:36,08
+So the thing to keep in mind is that atoms
+
+64
+00:02:36,08 --> 00:02:40,00
+contain the source of truth of your application state.
+
+65
+00:02:40,00 --> 00:02:42,00
+Next we're going to learn more about recoil,
+
+66
+00:02:42,00 --> 00:02:45,00
+and learn about how to read the state from the components.
+

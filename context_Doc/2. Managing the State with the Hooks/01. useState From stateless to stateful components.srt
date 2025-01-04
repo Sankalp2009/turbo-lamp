@@ -1,0 +1,560 @@
+1
+00:00:00,00 --> 00:00:02,07
+- The Hooks were first introduced in 2018.
+
+2
+00:00:02,07 --> 00:00:03,09
+They have been a new additions
+
+3
+00:00:03,09 --> 00:00:07,04
+to the React library since the version 16.8.
+
+4
+00:00:07,04 --> 00:00:09,09
+The Hooks give developers the ability
+
+5
+00:00:09,09 --> 00:00:11,04
+to create stateful components,
+
+6
+00:00:11,04 --> 00:00:13,04
+and use other React features
+
+7
+00:00:13,04 --> 00:00:14,07
+without having to write a class.
+
+8
+00:00:14,07 --> 00:00:17,02
+In other words, Hooks are functions
+
+9
+00:00:17,02 --> 00:00:19,08
+that lets you hook into the React states
+
+10
+00:00:19,08 --> 00:00:22,05
+and lifecycle features from a function components.
+
+11
+00:00:22,05 --> 00:00:24,01
+And so the React API provides
+
+12
+00:00:24,01 --> 00:00:26,05
+with a few built-in hooks like useState.
+
+13
+00:00:26,05 --> 00:00:29,05
+useState is a React Hook that lets you add
+
+14
+00:00:29,05 --> 00:00:32,04
+and store local state variables in a components.
+
+15
+00:00:32,04 --> 00:00:34,07
+And this is how the syntax looks like.
+
+16
+00:00:34,07 --> 00:00:36,07
+Whenever you call useState in a component,
+
+17
+00:00:36,07 --> 00:00:38,07
+it returns an array, with first,
+
+18
+00:00:38,07 --> 00:00:41,07
+a variable and a function, to update the state.
+
+19
+00:00:41,07 --> 00:00:44,06
+A new state can take a value as a parameter
+
+20
+00:00:44,06 --> 00:00:46,07
+of any type to set an initial value.
+
+21
+00:00:46,07 --> 00:00:50,05
+In this module, we cover how to manage the state effectively
+
+22
+00:00:50,05 --> 00:00:53,05
+in a React project by using the React built-in Hooks.
+
+23
+00:00:53,05 --> 00:00:55,07
+The next example is a math game
+
+24
+00:00:55,07 --> 00:00:57,07
+where users must mentally calculate
+
+25
+00:00:57,07 --> 00:01:00,06
+the results of two values added together.
+
+26
+00:01:00,06 --> 00:01:01,07
+To get started, we start in
+
+27
+00:01:01,07 --> 00:01:04,04
+your virtual machine, in Codespaces.
+
+28
+00:01:04,04 --> 00:01:06,04
+As a reminder, this course is created
+
+29
+00:01:06,04 --> 00:01:09,06
+using GitHub Codespaces, which is a code editor
+
+30
+00:01:09,06 --> 00:01:13,06
+available online and directly integrated into GitHub.
+
+31
+00:01:13,06 --> 00:01:16,04
+And so, the first time that you open up Codespaces,
+
+32
+00:01:16,04 --> 00:01:21,04
+it might take a few minutes to start a new virtual machine.
+
+33
+00:01:21,04 --> 00:01:22,04
+And once this is ready,
+
+34
+00:01:22,04 --> 00:01:25,03
+you will enter the online code editor.
+
+35
+00:01:25,03 --> 00:01:27,04
+Now, we navigate to our first example
+
+36
+00:01:27,04 --> 00:01:29,05
+inside the exercise-files.
+
+37
+00:01:29,05 --> 00:01:32,04
+You're going to find our first project about useState.
+
+38
+00:01:32,04 --> 00:01:34,07
+Inside, you're going to find a starter project.
+
+39
+00:01:34,07 --> 00:01:36,07
+So I'm going to open the terminal.
+
+40
+00:01:36,07 --> 00:01:39,05
+And I'm going to navigate to the exercise-files.
+
+41
+00:01:39,05 --> 00:01:43,02
+And then to our first project about the Hook useState,
+
+42
+00:01:43,02 --> 00:01:46,02
+and navigate to the starter project.
+
+43
+00:01:46,02 --> 00:01:48,00
+And you want to make sure that you install the dependencies
+
+44
+00:01:48,00 --> 00:01:51,07
+by running npm-install, or npm i for shorts.
+
+45
+00:01:51,07 --> 00:01:53,05
+And then npm starts.
+
+46
+00:01:53,05 --> 00:01:55,06
+To start the project, that's going to open
+
+47
+00:01:55,06 --> 00:01:59,06
+a new window in the browser.
+
+48
+00:01:59,06 --> 00:02:00,06
+And here we go.
+
+49
+00:02:00,06 --> 00:02:02,07
+So this is how our starter project looks like.
+
+50
+00:02:02,07 --> 00:02:05,06
+So this is a basic application
+
+51
+00:02:05,06 --> 00:02:07,07
+where users can calculate two values.
+
+52
+00:02:07,07 --> 00:02:09,04
+So first, you want to click on this button
+
+53
+00:02:09,04 --> 00:02:11,05
+to generate two values.
+
+54
+00:02:11,05 --> 00:02:14,06
+And then, in this input you will add up.
+
+55
+00:02:14,06 --> 00:02:16,06
+You will first add up the two together,
+
+56
+00:02:16,06 --> 00:02:19,06
+and then enter the answer in this input.
+
+57
+00:02:19,06 --> 00:02:22,05
+So let's go back to the source code.
+
+58
+00:02:22,05 --> 00:02:24,04
+We're going to look at the starter project.
+
+59
+00:02:24,04 --> 00:02:28,04
+You're going to see that we already have some boilerplate code.
+
+60
+00:02:28,04 --> 00:02:31,04
+With first, this function, generateRandomValues,
+
+61
+00:02:31,04 --> 00:02:34,05
+that we're going to use to generate two random values.
+
+62
+00:02:34,05 --> 00:02:36,02
+And this function is going to run each time
+
+63
+00:02:36,02 --> 00:02:38,08
+that you click on this button.
+
+64
+00:02:38,08 --> 00:02:40,09
+But the goal here is to keep track of these values.
+
+65
+00:02:40,09 --> 00:02:43,05
+So for that, we're going to use useState.
+
+66
+00:02:43,05 --> 00:02:46,06
+We're going to define local state variables.
+
+67
+00:02:46,06 --> 00:02:48,00
+First, we want to make sure that we add
+
+68
+00:02:48,00 --> 00:02:49,05
+to the scope of this project.
+
+69
+00:02:49,05 --> 00:02:51,09
+This module useState that we're going to import
+
+70
+00:02:51,09 --> 00:02:53,04
+from the React module.
+
+71
+00:02:53,04 --> 00:02:56,09
+So I'm going to remove the commands like this.
+
+72
+00:02:56,09 --> 00:03:00,02
+And next, I'm going to be able to define local state variables.
+
+73
+00:03:00,02 --> 00:03:02,05
+So for now, I have already defined,
+
+74
+00:03:02,05 --> 00:03:04,07
+as part of this starter projects,
+
+75
+00:03:04,07 --> 00:03:06,06
+this local state variables.
+
+76
+00:03:06,06 --> 00:03:08,02
+So we're going to be able to keep track
+
+77
+00:03:08,02 --> 00:03:11,08
+of these values by running setValues.
+
+78
+00:03:11,08 --> 00:03:13,06
+And it's going to be random1
+
+79
+00:03:13,06 --> 00:03:17,05
+for the first random value, and random2.
+
+80
+00:03:17,05 --> 00:03:18,07
+And we would like to do the same
+
+81
+00:03:18,07 --> 00:03:20,04
+for the value that we enter
+
+82
+00:03:20,04 --> 00:03:23,02
+inside this input by the user.
+
+83
+00:03:23,02 --> 00:03:27,08
+So let's go back, and you're going to find inside the project,
+
+84
+00:03:27,08 --> 00:03:30,08
+this text input right here.
+
+85
+00:03:30,08 --> 00:03:33,06
+So for now, we are just learning out the value.
+
+86
+00:03:33,06 --> 00:03:35,05
+But instead, you want to keep track of the value,
+
+87
+00:03:35,05 --> 00:03:37,01
+which is entered by the user.
+
+88
+00:03:37,01 --> 00:03:38,06
+So for that, I'm going to define
+
+89
+00:03:38,06 --> 00:03:42,08
+another local state variable right below.
+
+90
+00:03:42,08 --> 00:03:46,06
+And I'm going to name this one input, and then setInput.
+
+91
+00:03:46,06 --> 00:03:50,03
+That's the function that we use to update.
+
+92
+00:03:50,03 --> 00:03:51,04
+And then useState.
+
+93
+00:03:51,04 --> 00:03:55,04
+And I'm going to define a default value as 0.
+
+94
+00:03:55,04 --> 00:03:58,04
+And next, let's go back to the text input
+
+95
+00:03:58,04 --> 00:04:02,06
+and replace this with setInput.
+
+96
+00:04:02,06 --> 00:04:05,07
+And let's try that. Let's go back to the browser.
+
+97
+00:04:05,07 --> 00:04:11,05
+We're going to refresh and also open the console.
+
+98
+00:04:11,05 --> 00:04:14,02
+And also the tab that corresponds
+
+99
+00:04:14,02 --> 00:04:16,07
+to the React Developer Tools,
+
+100
+00:04:16,07 --> 00:04:19,08
+and highlights our root component, which is app.
+
+101
+00:04:19,08 --> 00:04:21,04
+And here, you see that you have visible,
+
+102
+00:04:21,04 --> 00:04:22,09
+the two local state variables.
+
+103
+00:04:22,09 --> 00:04:25,01
+We're going to be able to see. We're going to keep an eye on it.
+
+104
+00:04:25,01 --> 00:04:27,06
+And each time that you click on this button,
+
+105
+00:04:27,06 --> 00:04:29,00
+you're going to be able to see that
+
+106
+00:04:29,00 --> 00:04:33,03
+now we have two values that are randomly generated.
+
+107
+00:04:33,03 --> 00:04:34,07
+So let's try again.
+
+108
+00:04:34,07 --> 00:04:35,09
+You're going to see that it's going to change.
+
+109
+00:04:35,09 --> 00:04:39,02
+And then we're going to add up the two together.
+
+110
+00:04:39,02 --> 00:04:41,05
+And that should add up to 37.
+
+111
+00:04:41,05 --> 00:04:43,07
+But, what we would like also,
+
+112
+00:04:43,07 --> 00:04:46,06
+is to see those two values visible right here.
+
+113
+00:04:46,06 --> 00:04:48,06
+So we're going to make a few changes,
+
+114
+00:04:48,06 --> 00:04:51,07
+and complete the source code. Go back right here.
+
+115
+00:04:51,07 --> 00:04:53,07
+You're going to find here,
+
+116
+00:04:53,07 --> 00:04:56,01
+that we have hardcoded those two values 0.
+
+117
+00:04:56,01 --> 00:04:57,09
+So we're going to replace
+
+118
+00:04:57,09 --> 00:05:01,07
+with those local state variables, which are values.
+
+119
+00:05:01,07 --> 00:05:06,04
+We're going to refer to values, then random1.
+
+120
+00:05:06,04 --> 00:05:10,07
+And the second one will be values.random2.
+
+121
+00:05:10,07 --> 00:05:14,01
+And the next time that we click on this button,
+
+122
+00:05:14,01 --> 00:05:17,02
+we're going to be able to see that now,
+
+123
+00:05:17,02 --> 00:05:20,09
+we're going to see the two values. So let me refresh first.
+
+124
+00:05:20,09 --> 00:05:23,05
+I'm going to close the console.
+
+125
+00:05:23,05 --> 00:05:25,02
+Here we go. So now you can see that
+
+126
+00:05:25,02 --> 00:05:27,06
+we have those two values generated.
+
+127
+00:05:27,06 --> 00:05:30,06
+And next time, what we want is to see
+
+128
+00:05:30,06 --> 00:05:34,06
+if the value that we enter in this input matches
+
+129
+00:05:34,06 --> 00:05:36,06
+the two values here added together.
+
+130
+00:05:36,06 --> 00:05:38,09
+The goal in this game is to calculate
+
+131
+00:05:38,09 --> 00:05:41,06
+and submit the correct value after adding up
+
+132
+00:05:41,06 --> 00:05:44,04
+the two values that we have randomly generated.
+
+133
+00:05:44,04 --> 00:05:46,07
+For that purpose, we have implemented useState,
+
+134
+00:05:46,07 --> 00:05:48,04
+the useState Hook.
+
+135
+00:05:48,04 --> 00:05:50,07
+Coming next, we want to check if there is a match
+
+136
+00:05:50,07 --> 00:05:53,06
+between the two random values and the user inputs.
+
+137
+00:05:53,06 --> 00:05:55,03
+We want to see how to manage the state
+
+138
+00:05:55,03 --> 00:05:58,08
+and also apply side effects based on the state change.
+
+139
+00:05:58,08 --> 00:06:01,05
+So I will introduce you to another Hook next,
+
+140
+00:06:01,05 --> 00:06:04,00
+which is useEffects.
+

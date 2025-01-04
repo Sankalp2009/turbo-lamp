@@ -1,0 +1,500 @@
+1
+00:00:00,280 --> 00:00:06,870
+Now we're going to create a context which will be a global state for application, so the data that
+
+2
+00:00:06,870 --> 00:00:11,130
+you have in the context state will be available for the entire application.
+
+3
+00:00:11,670 --> 00:00:17,340
+So when the user logs in, we get the user and token so that when we were put in the context.
+
+4
+00:00:17,760 --> 00:00:18,030
+All right.
+
+5
+00:00:18,360 --> 00:00:22,200
+So let's go ahead and query context.
+
+6
+00:00:24,150 --> 00:00:27,900
+So it's a planful folder in the root directory.
+
+7
+00:00:27,930 --> 00:00:28,950
+Looks good at file.
+
+8
+00:00:29,160 --> 00:00:38,670
+And let's call it context, actually, let's create a folder helix grid full context.
+
+9
+00:00:38,910 --> 00:00:43,860
+And instead, we create a context file called both parties.
+
+10
+00:00:44,520 --> 00:00:49,590
+By the way, you can have more than one context stream if we need later, we can create another context
+
+11
+00:00:50,220 --> 00:00:52,770
+as well, so we just put it into a folder.
+
+12
+00:00:54,120 --> 00:00:56,040
+Now first, let's import react,
+
+13
+00:00:59,220 --> 00:01:02,940
+and we are going to use state, you state.
+
+14
+00:01:03,150 --> 00:01:11,100
+That's where we going to store the user and told them to use state use effect.
+
+15
+00:01:11,100 --> 00:01:12,520
+Also, we'll be using later.
+
+16
+00:01:12,570 --> 00:01:13,430
+So let me invert.
+
+17
+00:01:17,190 --> 00:01:21,120
+So we import react, we import excuse.
+
+18
+00:01:26,220 --> 00:01:34,320
+We also need to import essence stories because if the user and token is saved in the local stores,
+
+19
+00:01:34,320 --> 00:01:38,520
+we want to grab that and populate this state.
+
+20
+00:01:38,820 --> 00:01:44,820
+In this context, so that way, if there is any data available when the issue could reload, a user
+
+21
+00:01:45,040 --> 00:01:46,380
+returns the application.
+
+22
+00:01:46,710 --> 00:01:49,920
+We can grab that data from there and then, yeah.
+
+23
+00:01:50,340 --> 00:01:52,170
+So that they don't have to keep logging in.
+
+24
+00:01:52,200 --> 00:01:52,770
+It's time.
+
+25
+00:01:54,750 --> 00:02:02,910
+So that means let me just go to one of the screen signing just so that I can copy this import command.
+
+26
+00:02:04,950 --> 00:02:13,620
+It's back to context after we import async stories as well sort of create a context, we need to use
+
+27
+00:02:13,620 --> 00:02:18,690
+the use context hope so we can input that to use context.
+
+28
+00:02:20,400 --> 00:02:30,120
+But I choose not to use context to create context, create context and then to study using the create
+
+29
+00:02:30,120 --> 00:02:30,620
+context.
+
+30
+00:02:30,650 --> 00:02:41,040
+We can execute that and put in a variable, let's call it context equals to create context.
+
+31
+00:02:41,490 --> 00:02:43,200
+And this is a function we give.
+
+32
+00:02:43,350 --> 00:02:44,790
+We just execute this function.
+
+33
+00:02:45,060 --> 00:02:46,590
+And that would give us the context.
+
+34
+00:02:46,770 --> 00:02:48,000
+I guess we got the context.
+
+35
+00:02:48,270 --> 00:02:50,430
+Now we need to improvise as well.
+
+36
+00:02:51,210 --> 00:02:55,480
+Comms provider equals.
+
+37
+00:02:58,590 --> 00:03:03,270
+So here we can create a state just like in a regular React component.
+
+38
+00:03:04,170 --> 00:03:12,480
+So const state said state equals to use state.
+
+39
+00:03:14,190 --> 00:03:18,030
+And here in this state, we want to store the user and token right.
+
+40
+00:03:18,330 --> 00:03:26,970
+So user, we give the default value of not the empty object and token will be the type of string.
+
+41
+00:03:28,420 --> 00:03:39,630
+So we've got the state and now we want to load the user and token from the local storage by default.
+
+42
+00:03:40,530 --> 00:03:40,740
+Okay.
+
+43
+00:03:40,740 --> 00:03:49,650
+So whenever the application is ready to use effect, it takes a functional argument and second argument
+
+44
+00:03:49,650 --> 00:03:50,640
+the dependency.
+
+45
+00:03:50,640 --> 00:03:51,510
+We leave it empty.
+
+46
+00:03:52,680 --> 00:04:02,100
+So here we want to load the data from the local stories using async stories and then we can to put that
+
+47
+00:04:02,220 --> 00:04:09,270
+in this state so that we, if there is any value in the async stories that will be populated in the
+
+48
+00:04:09,810 --> 00:04:10,470
+state here.
+
+49
+00:04:11,520 --> 00:04:21,810
+So let me create a function load from async stories and construct async.
+
+50
+00:04:25,880 --> 00:04:33,250
+So here, let me put the the target that we get from missing stories into this variable.
+
+51
+00:04:34,250 --> 00:04:44,030
+So the point is the stories don't get item, get item by the name of at.
+
+52
+00:04:45,050 --> 00:04:51,680
+If you remember, we have saved the response by the name of oath when we sign in and sign up.
+
+53
+00:04:51,950 --> 00:04:55,010
+So we grab that put in a very raw data.
+
+54
+00:04:56,990 --> 00:05:03,140
+Now, once you give this data, we have to convert it into JavaScript object because we saved it as
+
+55
+00:05:03,140 --> 00:05:09,650
+Jason using this and string and fire right now to start using it as JavaScript object, we can put it
+
+56
+00:05:09,650 --> 00:05:10,100
+in a bit.
+
+57
+00:05:11,240 --> 00:05:12,470
+We can put it in a variable.
+
+58
+00:05:12,470 --> 00:05:14,150
+It's called async stories.
+
+59
+00:05:15,440 --> 00:05:25,310
+As Jason Pass, we're going to pass this and object to.
+
+60
+00:05:27,460 --> 00:05:38,320
+This and other disaster, this in Paris and give the data to this function that will give us the objects
+
+61
+00:05:38,770 --> 00:05:48,340
+in the this variable right now, since we can put it in state first, we spread the state.
+
+62
+00:05:48,340 --> 00:05:53,570
+Whatever data we have in the state, we spread it out and then we update.
+
+63
+00:05:53,710 --> 00:05:59,110
+Now we update the user with the data we get from the essence.
+
+64
+00:05:59,110 --> 00:06:05,920
+First is don't use it and then stop them and stop.
+
+65
+00:06:08,430 --> 00:06:14,670
+I said that we we grab this value and then put in the state and now we need to execute this function.
+
+66
+00:06:14,790 --> 00:06:16,860
+Otherwise, nothing happens here.
+
+67
+00:06:18,630 --> 00:06:20,910
+Let's execute using the parentheses.
+
+68
+00:06:21,210 --> 00:06:21,480
+All right.
+
+69
+00:06:21,870 --> 00:06:24,450
+So you defect on this issue.
+
+70
+00:06:24,540 --> 00:06:26,640
+So is that application loose?
+
+71
+00:06:27,030 --> 00:06:28,050
+This will get fired.
+
+72
+00:06:28,590 --> 00:06:31,950
+And as a result, we will give the user a token in the state.
+
+73
+00:06:32,460 --> 00:06:37,260
+So that means we can start using context now.
+
+74
+00:06:37,290 --> 00:06:45,840
+So all you have to do is export export of context and also provide.
+
+75
+00:06:48,730 --> 00:06:50,200
+So do started using this one.
+
+76
+00:06:50,380 --> 00:06:53,410
+Actually, we have to do one, the thing you have to return something, right?
+
+77
+00:06:54,760 --> 00:06:55,340
+And then what are?
+
+78
+00:06:55,840 --> 00:07:00,770
+We're going to wrap our entire entire application using.
+
+79
+00:07:00,790 --> 00:07:08,970
+Author provided and that will provide the these functions stint and then sends it to any other compliance.
+
+80
+00:07:09,070 --> 00:07:12,670
+For example, those components will be accessible as children process.
+
+81
+00:07:13,150 --> 00:07:13,480
+OK.
+
+82
+00:07:13,810 --> 00:07:20,800
+So you can do props and profit or children or even better, just destructor street children.
+
+83
+00:07:21,370 --> 00:07:21,640
+All right.
+
+84
+00:07:22,060 --> 00:07:28,510
+So you want to return the children component, which can be anything like sanding?
+
+85
+00:07:28,510 --> 00:07:29,860
+Sign up any other piece.
+
+86
+00:07:30,670 --> 00:07:31,270
+They are.
+
+87
+00:07:31,270 --> 00:07:34,510
+We will wrap big user with us writing.
+
+88
+00:07:34,960 --> 00:07:35,260
+All right.
+
+89
+00:07:35,560 --> 00:07:37,240
+So when you return.
+
+90
+00:07:39,490 --> 00:07:42,250
+We are going to use you the context.
+
+91
+00:07:49,030 --> 00:08:00,820
+What context don't go by the time we get this access to this was provided, so we we return what context
+
+92
+00:08:00,820 --> 00:08:01,390
+provided.
+
+93
+00:08:01,540 --> 00:08:02,230
+And here?
+
+94
+00:08:04,020 --> 00:08:05,040
+What do you want to provide?
+
+95
+00:08:05,070 --> 00:08:16,080
+We want to provide the value that will be this standard substance in this competition.
+
+96
+00:08:17,250 --> 00:08:20,150
+So this is the state and of the state.
+
+97
+00:08:20,160 --> 00:08:22,060
+This is the front and center step ahead.
+
+98
+00:08:22,080 --> 00:08:28,940
+So both of these, if we can pass as a value to any of the components, that's all we want, right?
+
+99
+00:08:28,950 --> 00:08:38,100
+So then this state will be global accessible anywhere using the program and from any company, you can
+
+100
+00:08:38,100 --> 00:08:40,740
+easily access the state and unrealistic.
+
+101
+00:08:41,100 --> 00:08:45,420
+So you pass the value like that and then you return children.
+
+102
+00:08:45,750 --> 00:08:46,620
+Children come from.
+
+103
+00:08:51,320 --> 00:08:51,560
+All right.
+
+104
+00:08:51,680 --> 00:08:52,430
+Simple as that.
+
+105
+00:08:53,300 --> 00:08:54,680
+That's our context.
+
+106
+00:08:54,970 --> 00:09:03,040
+Now later, we'll come back and configure exit assessment so that you don't have to send the token.
+
+107
+00:09:03,050 --> 00:09:08,240
+It's time when you make a request so you can configure excuse so that it will be the token will be sent
+
+108
+00:09:08,870 --> 00:09:10,220
+in the Harris globally.
+
+109
+00:09:10,310 --> 00:09:10,520
+All right.
+
+110
+00:09:10,520 --> 00:09:12,350
+So we've come back to that at the moment.
+
+111
+00:09:12,350 --> 00:09:13,610
+We have the context.
+
+112
+00:09:14,810 --> 00:09:16,070
+Now we can start using it.
+
+113
+00:09:16,220 --> 00:09:21,690
+So let's go to where do you want to access this one?
+
+114
+00:09:21,700 --> 00:09:23,000
+So at the moment?
+
+115
+00:09:24,480 --> 00:09:28,740
+Let's go to emptiest test, and we have the navigation here, right?
+
+116
+00:09:29,040 --> 00:09:34,020
+So this is where you want to input the context provided and wrap everything in.
+
+117
+00:09:35,760 --> 00:09:37,410
+So we import off for wider
+
+118
+00:09:40,380 --> 00:09:41,130
+destruction,
+
+119
+00:09:43,800 --> 00:09:46,590
+ultraviolet from context and then.
+
+120
+00:09:48,620 --> 00:09:48,890
+Yeah.
+
+121
+00:09:49,400 --> 00:09:55,810
+All this stuff, navigate to a wrap with three of our.
+
+122
+00:10:01,260 --> 00:10:08,350
+All right, that so once you do that, the value they stood in said state will be accessible to any
+
+123
+00:10:08,350 --> 00:10:15,490
+other components that you can give this a try to try that let's create a screen.
+
+124
+00:10:16,030 --> 00:10:22,570
+Let's do that in the next lecture, let's create a home screen and let's try accessing the state the
+
+125
+00:10:22,570 --> 00:10:26,310
+context just so that we can see that everything is working.
+

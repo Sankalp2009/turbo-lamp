@@ -1,0 +1,204 @@
+1
+00:00:00,06 --> 00:00:03,00
+- [Instructor] Zustand is another state management solution
+
+2
+00:00:03,00 --> 00:00:04,03
+with an atomic approach,
+
+3
+00:00:04,03 --> 00:00:06,02
+also inspired by Recoil.
+
+4
+00:00:06,02 --> 00:00:08,02
+It was developed by Jotai.
+
+5
+00:00:08,02 --> 00:00:09,07
+This lesson introduces you
+
+6
+00:00:09,07 --> 00:00:13,08
+to the Zustand State Management Library in React.
+
+7
+00:00:13,08 --> 00:00:15,09
+Zustand means state in German.
+
+8
+00:00:15,09 --> 00:00:18,06
+It is a lightweight and a simple state management solution
+
+9
+00:00:18,06 --> 00:00:22,04
+with an API based on hooks, similar to the React API.
+
+10
+00:00:22,04 --> 00:00:24,07
+So everything is going to feel very familiar,
+
+11
+00:00:24,07 --> 00:00:26,03
+comfortable and easy.
+
+12
+00:00:26,03 --> 00:00:27,02
+To create the store,
+
+13
+00:00:27,02 --> 00:00:29,05
+you're going to first import the method create
+
+14
+00:00:29,05 --> 00:00:31,07
+from the library Zustand.
+
+15
+00:00:31,07 --> 00:00:33,08
+Then we create a hook for the store
+
+16
+00:00:33,08 --> 00:00:35,08
+which is use bear store.
+
+17
+00:00:35,08 --> 00:00:37,06
+Then we define a state
+
+18
+00:00:37,06 --> 00:00:40,09
+with an initial state for the bears, which is set at zero.
+
+19
+00:00:40,09 --> 00:00:42,06
+And we also define functions
+
+20
+00:00:42,06 --> 00:00:45,03
+which are going to be used to carry over the data.
+
+21
+00:00:45,03 --> 00:00:47,05
+Then the state is bound to components.
+
+22
+00:00:47,05 --> 00:00:50,07
+We're going to import the hook in our components
+
+23
+00:00:50,07 --> 00:00:53,08
+and then bind the state to our components.
+
+24
+00:00:53,08 --> 00:00:54,06
+That's it.
+
+25
+00:00:54,06 --> 00:00:57,01
+This is a very simple data flow to manage it all.
+
+26
+00:00:57,01 --> 00:01:03,01
+So let's check it out with an example.
+
+27
+00:01:03,01 --> 00:01:05,01
+So in this sandbox we have a store.
+
+28
+00:01:05,01 --> 00:01:07,06
+So this one is named use store
+
+29
+00:01:07,06 --> 00:01:10,02
+and we define an initial state for the count
+
+30
+00:01:10,02 --> 00:01:13,08
+which is set at one, and we also have a function
+
+31
+00:01:13,08 --> 00:01:16,08
+that we're going to use to increment this value.
+
+32
+00:01:16,08 --> 00:01:19,07
+Then inside the functional component, we bound the state.
+
+33
+00:01:19,07 --> 00:01:23,02
+We bound the state to the store by calling use store,
+
+34
+00:01:23,02 --> 00:01:25,09
+which is our base hook store.
+
+35
+00:01:25,09 --> 00:01:29,03
+Then we can display the value of the count
+
+36
+00:01:29,03 --> 00:01:31,00
+to display the value of the counter
+
+37
+00:01:31,00 --> 00:01:32,03
+and also use inc,
+
+38
+00:01:32,03 --> 00:01:35,04
+which is the function that we use to increment the value
+
+39
+00:01:35,04 --> 00:01:37,09
+every time that you click on the button.
+
+40
+00:01:37,09 --> 00:01:39,08
+So why choose Zustand
+
+41
+00:01:39,08 --> 00:01:43,08
+over the Context API or Redux, for example?
+
+42
+00:01:43,08 --> 00:01:46,05
+Well, first it requires less boilerplate code.
+
+43
+00:01:46,05 --> 00:01:48,03
+Also, the data flow is very simple.
+
+44
+00:01:48,03 --> 00:01:51,02
+With a simple hook, the store hook can be used everywhere
+
+45
+00:01:51,02 --> 00:01:54,07
+from any components and no context provider is needed.
+
+46
+00:01:54,07 --> 00:01:57,01
+So that is many reasons to choose Zustand
+
+47
+00:01:57,01 --> 00:01:58,09
+as a state management solution.
+
+48
+00:01:58,09 --> 00:02:01,08
+In these sections, the project will build our (indistinct)
+
+49
+00:02:01,08 --> 00:02:05,00
+and a checklist for the challenge parts at the end.
+
+50
+00:02:05,00 --> 00:02:06,05
+So let's see how to use Zustand
+
+51
+00:02:06,05 --> 00:02:08,00
+as a state management solution.
+

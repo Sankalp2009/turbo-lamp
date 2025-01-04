@@ -1,0 +1,184 @@
+1
+00:00:00,00 --> 00:00:05,06
+(upbeat music)
+
+2
+00:00:05,06 --> 00:00:07,08
+- Zustand is a small, a fast,
+
+3
+00:00:07,08 --> 00:00:09,08
+and a scalable state management solution
+
+4
+00:00:09,08 --> 00:00:11,01
+with a simplified data flow
+
+5
+00:00:11,01 --> 00:00:13,03
+between the store and the components.
+
+6
+00:00:13,03 --> 00:00:15,01
+Previously, we saw how to create a store,
+
+7
+00:00:15,01 --> 00:00:16,05
+how to create functions,
+
+8
+00:00:16,05 --> 00:00:18,08
+how to access and update the store data,
+
+9
+00:00:18,08 --> 00:00:22,02
+and also access multiple states to update the components.
+
+10
+00:00:22,02 --> 00:00:25,01
+Now it's your turn to make the best of Zustand
+
+11
+00:00:25,01 --> 00:00:26,01
+with a new challenge.
+
+12
+00:00:26,01 --> 00:00:29,04
+So we have this to-do list, we can add items to it.
+
+13
+00:00:29,04 --> 00:00:30,04
+New item.
+
+14
+00:00:30,04 --> 00:00:32,03
+We can cross items off the list,
+
+15
+00:00:32,03 --> 00:00:35,02
+and then clear the ones that are completed.
+
+16
+00:00:35,02 --> 00:00:38,02
+We can decide to display only the active elements,
+
+17
+00:00:38,02 --> 00:00:41,07
+or the completed ones, or display them all.
+
+18
+00:00:41,07 --> 00:00:44,09
+So this exercise is to learn how to synchronize the state
+
+19
+00:00:44,09 --> 00:00:47,00
+across multiple components of your app.
+
+20
+00:00:47,00 --> 00:00:50,05
+So let's go check out the startup project.
+
+21
+00:00:50,05 --> 00:00:53,00
+You see that we have multiple state variables.
+
+22
+00:00:53,00 --> 00:00:54,06
+So we use the React API,
+
+23
+00:00:54,06 --> 00:00:57,02
+and here the goal is to refactor the app.
+
+24
+00:00:57,02 --> 00:01:00,05
+Refactor the app by using Zustand only.
+
+25
+00:01:00,05 --> 00:01:02,07
+So the application should contain a single
+
+26
+00:01:02,07 --> 00:01:04,04
+and a centralized store.
+
+27
+00:01:04,04 --> 00:01:06,05
+You see that we have multiple components
+
+28
+00:01:06,05 --> 00:01:08,06
+in order to compose the UI.
+
+29
+00:01:08,06 --> 00:01:10,07
+So we have the header, and the footer.
+
+30
+00:01:10,07 --> 00:01:13,07
+And also to apply the powerful concept of React,
+
+31
+00:01:13,07 --> 00:01:15,01
+which is composition,
+
+32
+00:01:15,01 --> 00:01:18,06
+we divide the user interface into multiple units,
+
+33
+00:01:18,06 --> 00:01:19,08
+multiple components.
+
+34
+00:01:19,08 --> 00:01:22,06
+And so the goal will be to allow every component
+
+35
+00:01:22,06 --> 00:01:25,06
+to subscribe to the state change by calling,
+
+36
+00:01:25,06 --> 00:01:26,09
+by calling the hook store.
+
+37
+00:01:26,09 --> 00:01:28,03
+So the first task will be
+
+38
+00:01:28,03 --> 00:01:31,02
+for you to create a store to centralize the data
+
+39
+00:01:31,02 --> 00:01:33,00
+as a single source of truth.
+
+40
+00:01:33,00 --> 00:01:35,02
+And then the second task will be
+
+41
+00:01:35,02 --> 00:01:36,05
+to update all the components
+
+42
+00:01:36,05 --> 00:01:38,02
+with the same single source of truth,
+
+43
+00:01:38,02 --> 00:01:42,04
+so to call the hook in order to access, read the states,
+
+44
+00:01:42,04 --> 00:01:46,06
+and then update the state directly from the components.
+
+45
+00:01:46,06 --> 00:01:47,07
+So good luck to you,
+
+46
+00:01:47,07 --> 00:01:52,00
+and up next we see the solutions together to this challenge.
+

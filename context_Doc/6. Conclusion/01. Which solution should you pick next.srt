@@ -1,0 +1,60 @@
+1
+00:00:00,05 --> 00:00:02,01
+- [Sandy] We have reached the end of the course.
+
+2
+00:00:02,01 --> 00:00:03,04
+Congratulations.
+
+3
+00:00:03,04 --> 00:00:04,08
+I hope you enjoyed the class
+
+4
+00:00:04,08 --> 00:00:06,07
+and that you learned a lot from it.
+
+5
+00:00:06,07 --> 00:00:08,07
+You are now set to go above and beyond
+
+6
+00:00:08,07 --> 00:00:10,03
+and ready to build quality-driven
+
+7
+00:00:10,03 --> 00:00:12,08
+and highly scalable React applications,
+
+8
+00:00:12,08 --> 00:00:14,06
+but your journey should not end here.
+
+9
+00:00:14,06 --> 00:00:17,05
+If you wish to continue to advance your skills in React
+
+10
+00:00:17,05 --> 00:00:19,07
+I recommend you watch some other great courses
+
+11
+00:00:19,07 --> 00:00:22,02
+available here in the LinkedIn Learning Library,
+
+12
+00:00:22,02 --> 00:00:23,03
+because the more you learn
+
+13
+00:00:23,03 --> 00:00:26,06
+the better your experience will be as a React developer.
+
+14
+00:00:26,06 --> 00:00:28,02
+Again, I am Sandy Ludosky,
+
+15
+00:00:28,02 --> 00:00:31,00
+thanks for watching my course and always keep learning.
+

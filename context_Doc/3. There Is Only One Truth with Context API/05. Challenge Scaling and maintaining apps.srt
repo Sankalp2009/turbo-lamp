@@ -1,0 +1,236 @@
+1
+00:00:00,00 --> 00:00:05,06
+(upbeat music)
+
+2
+00:00:05,06 --> 00:00:07,08
+- [Instructor] In the next exercise, we want to allow
+
+3
+00:00:07,08 --> 00:00:10,04
+every components to access the global state.
+
+4
+00:00:10,04 --> 00:00:12,05
+So, for that we're going to use another hook,
+
+5
+00:00:12,05 --> 00:00:13,08
+which is use context.
+
+6
+00:00:13,08 --> 00:00:16,02
+It's another react hook that lets you read and subscribe
+
+7
+00:00:16,02 --> 00:00:19,04
+to the context changes from a functional components.
+
+8
+00:00:19,04 --> 00:00:20,06
+So, we're going to add this one.
+
+9
+00:00:20,06 --> 00:00:22,09
+We're going to call it from the functional components
+
+10
+00:00:22,09 --> 00:00:26,01
+and pass a context object as a parameter.
+
+11
+00:00:26,01 --> 00:00:29,04
+Then, it's going to return a global state as a value.
+
+12
+00:00:29,04 --> 00:00:32,07
+So, let's do the same inside our app components.
+
+13
+00:00:32,07 --> 00:00:35,01
+We're going to add this to the scope, use context,
+
+14
+00:00:35,01 --> 00:00:39,03
+and we need also to pass the context object as a parameter.
+
+15
+00:00:39,03 --> 00:00:41,09
+So, we're going to go back to here, the context,
+
+16
+00:00:41,09 --> 00:00:45,09
+and we want to make sure that we export this context,
+
+17
+00:00:45,09 --> 00:00:50,00
+so we can import it from outside.
+
+18
+00:00:50,00 --> 00:00:54,06
+So, we're going to import like this.
+
+19
+00:00:54,06 --> 00:00:57,04
+And so, inside here the app components,
+
+20
+00:00:57,04 --> 00:01:04,03
+I'm going to call use context and pass context as an object.
+
+21
+00:01:04,03 --> 00:01:07,00
+And I'm going to add a debugger statement
+
+22
+00:01:07,00 --> 00:01:10,05
+just to make a quick demo.
+
+23
+00:01:10,05 --> 00:01:21,01
+Let's just make sure that the app is up and running.
+
+24
+00:01:21,01 --> 00:01:24,09
+So, now, we open the inspector tool
+
+25
+00:01:24,09 --> 00:01:28,01
+and we check the reactive tools.
+
+26
+00:01:28,01 --> 00:01:29,08
+Here we go.
+
+27
+00:01:29,08 --> 00:01:32,08
+And I'm going to refresh because I'd like
+
+28
+00:01:32,08 --> 00:01:34,08
+the applications to stop right here.
+
+29
+00:01:34,08 --> 00:01:36,05
+So, now you can see that you have access
+
+30
+00:01:36,05 --> 00:01:39,05
+to a value with inside an array,
+
+31
+00:01:39,05 --> 00:01:41,09
+an array that includes the state
+
+32
+00:01:41,09 --> 00:01:46,08
+and also the dispatch function.
+
+33
+00:01:46,08 --> 00:01:49,00
+So, that's exactly what we need.
+
+34
+00:01:49,00 --> 00:01:52,00
+So, basically, what we're going to do, let's go back.
+
+35
+00:01:52,00 --> 00:01:54,02
+So, instead of using use register,
+
+36
+00:01:54,02 --> 00:01:57,01
+we no longer need to use use register
+
+37
+00:01:57,01 --> 00:02:00,03
+because we're not going to keep now the state management
+
+38
+00:02:00,03 --> 00:02:04,03
+at the top level of the root components.
+
+39
+00:02:04,03 --> 00:02:06,03
+Instead, we're going to allow every component
+
+40
+00:02:06,03 --> 00:02:09,08
+to subscribe to the context changes.
+
+41
+00:02:09,08 --> 00:02:12,06
+So, we're going to be able to do that separately.
+
+42
+00:02:12,06 --> 00:02:14,03
+Like this, it's going to work,
+
+43
+00:02:14,03 --> 00:02:16,03
+and if we try, actually it's going to work.
+
+44
+00:02:16,03 --> 00:02:21,03
+Yeah, we're going to be able to run the app again,
+
+45
+00:02:21,03 --> 00:02:23,01
+like this, let's try that.
+
+46
+00:02:23,01 --> 00:02:29,07
+Okay, so that should be 37.
+
+47
+00:02:29,07 --> 00:02:33,02
+Let's try to get that right, excellent.
+
+48
+00:02:33,02 --> 00:02:35,00
+Okay, so the thing is for now,
+
+49
+00:02:35,00 --> 00:02:37,05
+what we need to do is to allow other components
+
+50
+00:02:37,05 --> 00:02:40,00
+to also subscribe to the context changes.
+
+51
+00:02:40,00 --> 00:02:42,08
+In doing so, we can avoid passing data down
+
+52
+00:02:42,08 --> 00:02:45,06
+from parents to child by using the props.
+
+53
+00:02:45,06 --> 00:02:47,08
+So, the next exercise will be for you
+
+54
+00:02:47,08 --> 00:02:51,01
+to also allow every component like the form
+
+55
+00:02:51,01 --> 00:02:53,01
+and also the result components to subscribe
+
+56
+00:02:53,01 --> 00:02:55,08
+to the context changes and to eliminate
+
+57
+00:02:55,08 --> 00:02:59,04
+one-by-one all the props like this.
+
+58
+00:02:59,04 --> 00:03:01,00
+And we're going to see the solutions together
+
+59
+00:03:01,00 --> 00:03:03,00
+in the next video.
+

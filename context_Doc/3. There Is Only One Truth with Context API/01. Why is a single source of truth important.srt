@@ -1,0 +1,244 @@
+1
+00:00:00,05 --> 00:00:02,06
+- [Instructor] Now the application is growing really fast
+
+2
+00:00:02,06 --> 00:00:04,03
+with some additional features.
+
+3
+00:00:04,03 --> 00:00:06,04
+Line four, we have this extra component
+
+4
+00:00:06,04 --> 00:00:08,00
+that we use to keep track of the score,
+
+5
+00:00:08,00 --> 00:00:11,01
+so each time that you get the answer right.
+
+6
+00:00:11,01 --> 00:00:13,02
+And this one is visible right here.
+
+7
+00:00:13,02 --> 00:00:14,09
+So every time that you get the answer right,
+
+8
+00:00:14,09 --> 00:00:16,07
+it's going to be incremented by one.
+
+9
+00:00:16,07 --> 00:00:18,05
+So let's try this one out.
+
+10
+00:00:18,05 --> 00:00:20,09
+I already have my app up and running.
+
+11
+00:00:20,09 --> 00:00:24,01
+So we're going to try to add up 31 plus 28
+
+12
+00:00:24,01 --> 00:00:26,08
+and that should add up to 59.
+
+13
+00:00:26,08 --> 00:00:27,09
+Let's see if this is right.
+
+14
+00:00:27,09 --> 00:00:29,02
+Perfect. You guessed right.
+
+15
+00:00:29,02 --> 00:00:33,04
+And my points is visible right here, my new score.
+
+16
+00:00:33,04 --> 00:00:34,07
+So the bigger the application,
+
+17
+00:00:34,07 --> 00:00:36,09
+the more challenging it is to maintain.
+
+18
+00:00:36,09 --> 00:00:39,00
+Let me show you one quick example.
+
+19
+00:00:39,00 --> 00:00:41,04
+Right here, we have the Dropbox website,
+
+20
+00:00:41,04 --> 00:00:44,00
+which is also built with the React library.
+
+21
+00:00:44,00 --> 00:00:48,08
+Let's have a look inside by using the React dev tools.
+
+22
+00:00:48,08 --> 00:00:52,01
+You're going to see that this is a very complex application
+
+23
+00:00:52,01 --> 00:00:55,06
+with multiple levels of deeply nested components
+
+24
+00:00:55,06 --> 00:00:57,06
+of the application tree right here.
+
+25
+00:00:57,06 --> 00:00:59,01
+So imagine having to go through hundreds
+
+26
+00:00:59,01 --> 00:01:01,02
+or thousands of lines of code.
+
+27
+00:01:01,02 --> 00:01:03,08
+When you need to share the state across the application,
+
+28
+00:01:03,08 --> 00:01:05,07
+you need to pass the props manually
+
+29
+00:01:05,07 --> 00:01:08,01
+and it can be very tedious and time consuming
+
+30
+00:01:08,01 --> 00:01:09,09
+to manage and to maintain.
+
+31
+00:01:09,09 --> 00:01:11,06
+And you may also need to deal with
+
+32
+00:01:11,06 --> 00:01:14,08
+many programming concerns, like multiple duplications,
+
+33
+00:01:14,08 --> 00:01:16,07
+state object in different places,
+
+34
+00:01:16,07 --> 00:01:19,08
+and where communications between components can only be done
+
+35
+00:01:19,08 --> 00:01:24,00
+by traversing multiple layers of the application tree.
+
+36
+00:01:24,00 --> 00:01:25,07
+And so, dealing with the states management
+
+37
+00:01:25,07 --> 00:01:28,03
+in a React application can be a tricky thing,
+
+38
+00:01:28,03 --> 00:01:30,06
+and especially when data needs to be passed
+
+39
+00:01:30,06 --> 00:01:32,04
+from a root component.
+
+40
+00:01:32,04 --> 00:01:34,05
+So if I need to go all the way to the top,
+
+41
+00:01:34,05 --> 00:01:36,08
+that's going to take me a long time.
+
+42
+00:01:36,08 --> 00:01:40,03
+So from the root component and down
+
+43
+00:01:40,03 --> 00:01:42,09
+deeply nested components,
+
+44
+00:01:42,09 --> 00:01:44,00
+and it's going to take me a while
+
+45
+00:01:44,00 --> 00:01:45,09
+to go all the way down as well.
+
+46
+00:01:45,09 --> 00:01:48,01
+This leads to one recurrent and common concern
+
+47
+00:01:48,01 --> 00:01:49,05
+called props drilling.
+
+48
+00:01:49,05 --> 00:01:51,08
+And so, the best way to overcome the pitfall
+
+49
+00:01:51,08 --> 00:01:54,00
+of props drilling is to keep the state management
+
+50
+00:01:54,00 --> 00:01:56,03
+structure flat, with the application state
+
+51
+00:01:56,03 --> 00:01:59,02
+centralized in one single location
+
+52
+00:01:59,02 --> 00:02:03,04
+so you can easily manage and update it over time.
+
+53
+00:02:03,04 --> 00:02:05,04
+So the idea behind a single source of truth
+
+54
+00:02:05,04 --> 00:02:09,09
+is to separate the business logic from the presentation.
+
+55
+00:02:09,09 --> 00:02:12,06
+This leads to the introduction of the context API,
+
+56
+00:02:12,06 --> 00:02:14,08
+which is also part of the React API.
+
+57
+00:02:14,08 --> 00:02:18,00
+With the context API, the state lives in one place
+
+58
+00:02:18,00 --> 00:02:20,03
+and is accessible everywhere.
+
+59
+00:02:20,03 --> 00:02:23,02
+Let's discover more about how to manage the state globally
+
+60
+00:02:23,02 --> 00:02:24,06
+with a single source of truth
+
+61
+00:02:24,06 --> 00:02:26,00
+with the context API.
+

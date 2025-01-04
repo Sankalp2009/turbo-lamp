@@ -1,0 +1,316 @@
+1
+00:00:00,05 --> 00:00:02,01
+- [Instructor] In order to maximize learning
+
+2
+00:00:02,01 --> 00:00:05,04
+every topic comes with practical examples and exercises.
+
+3
+00:00:05,04 --> 00:00:07,05
+As part of this course, you will have challenges
+
+4
+00:00:07,05 --> 00:00:09,02
+and projects to test your knowledge
+
+5
+00:00:09,02 --> 00:00:11,01
+of the state management libraries
+
+6
+00:00:11,01 --> 00:00:12,08
+and also apply everything that you've learned
+
+7
+00:00:12,08 --> 00:00:15,03
+to push the learning experience a bit further.
+
+8
+00:00:15,03 --> 00:00:16,08
+And in order for you to follow along,
+
+9
+00:00:16,08 --> 00:00:19,07
+exercise files are also available.
+
+10
+00:00:19,07 --> 00:00:22,01
+For this class, there is a new way to access
+
+11
+00:00:22,01 --> 00:00:25,04
+and interact with the exercise files, which are Codespaces.
+
+12
+00:00:25,04 --> 00:00:27,03
+Codespaces is a code editor
+
+13
+00:00:27,03 --> 00:00:30,01
+directly available in the cloud with the full power
+
+14
+00:00:30,01 --> 00:00:31,07
+of Visual Studio Code.
+
+15
+00:00:31,07 --> 00:00:33,05
+You will see that this is very convenient
+
+16
+00:00:33,05 --> 00:00:36,05
+and everything is available and done online.
+
+17
+00:00:36,05 --> 00:00:39,01
+With Codespaces, it is easy to get started.
+
+18
+00:00:39,01 --> 00:00:41,00
+I will walk through through the steps.
+
+19
+00:00:41,00 --> 00:00:42,04
+So to practice along with the course,
+
+20
+00:00:42,04 --> 00:00:44,00
+you will have access to Codespaces
+
+21
+00:00:44,00 --> 00:00:47,02
+directly from the course page if you are already logged in.
+
+22
+00:00:47,02 --> 00:00:48,06
+Otherwise, you will be prompted
+
+23
+00:00:48,06 --> 00:00:51,00
+to create a new GitHub account first.
+
+24
+00:00:51,00 --> 00:00:53,01
+So the first time that you open up Codespaces
+
+25
+00:00:53,01 --> 00:00:54,06
+it may take a few minutes to create
+
+26
+00:00:54,06 --> 00:00:58,08
+a new virtual machine that we're going to access from here.
+
+27
+00:00:58,08 --> 00:00:59,08
+And once this is ready,
+
+28
+00:00:59,08 --> 00:01:03,00
+you will enter the Code Editor environment.
+
+29
+00:01:03,00 --> 00:01:04,06
+And if you're familiar with the Code Editor
+
+30
+00:01:04,06 --> 00:01:07,03
+of Visual Studio Code you will feel right at home.
+
+31
+00:01:07,03 --> 00:01:10,03
+This is a special and virtual version of Visual Studio Code
+
+32
+00:01:10,03 --> 00:01:11,07
+that you already know.
+
+33
+00:01:11,07 --> 00:01:15,07
+So on the left, there is a toolbar with a project explorer,
+
+34
+00:01:15,07 --> 00:01:18,07
+a search and a debugging feature.
+
+35
+00:01:18,07 --> 00:01:21,05
+Also with the options to do version control.
+
+36
+00:01:21,05 --> 00:01:23,02
+Plus, you have access to plugins
+
+37
+00:01:23,02 --> 00:01:25,09
+and extensions in order to add more capabilities
+
+38
+00:01:25,09 --> 00:01:28,05
+to your online code editor.
+
+39
+00:01:28,05 --> 00:01:29,09
+And because this is a browser,
+
+40
+00:01:29,09 --> 00:01:32,03
+it is easy to close the browser window by mistake
+
+41
+00:01:32,03 --> 00:01:35,03
+and to lose the editor but if you do that, no panic
+
+42
+00:01:35,03 --> 00:01:37,09
+because Codespaces saves everything that you're doing
+
+43
+00:01:37,09 --> 00:01:39,05
+on the virtual machine.
+
+44
+00:01:39,05 --> 00:01:41,02
+So whenever you go back to the editor,
+
+45
+00:01:41,02 --> 00:01:43,06
+it'll be exactly where you're left off.
+
+46
+00:01:43,06 --> 00:01:46,08
+So this is very convenient to work with Codespaces.
+
+47
+00:01:46,08 --> 00:01:49,00
+No development environment setup is required.
+
+48
+00:01:49,00 --> 00:01:52,00
+There is no need for tools or libraries installation.
+
+49
+00:01:52,00 --> 00:01:53,07
+Everything is ready to get started.
+
+50
+00:01:53,07 --> 00:01:56,06
+All you need is a modern browser and high speed internet.
+
+51
+00:01:56,06 --> 00:01:58,09
+One click and you're ready to go.
+
+52
+00:01:58,09 --> 00:02:00,07
+For every demonstration of the class
+
+53
+00:02:00,07 --> 00:02:03,05
+you will have access to the corresponding exercise files
+
+54
+00:02:03,05 --> 00:02:05,07
+with a starter and a final version.
+
+55
+00:02:05,07 --> 00:02:07,02
+And if you ever decide to start
+
+56
+00:02:07,02 --> 00:02:09,02
+at a specific point of time in the class,
+
+57
+00:02:09,02 --> 00:02:12,03
+for example, chapter two and video zero one,
+
+58
+00:02:12,03 --> 00:02:14,01
+you can always select the exercise files
+
+59
+00:02:14,01 --> 00:02:17,06
+for the corresponding chapter and video number.
+
+60
+00:02:17,06 --> 00:02:19,06
+And the tools you need to get started with the class
+
+61
+00:02:19,06 --> 00:02:22,05
+are a modern browser, high speed internet,
+
+62
+00:02:22,05 --> 00:02:25,05
+a GitHub account to access the exercise files on GitHub
+
+63
+00:02:25,05 --> 00:02:30,06
+and Codepaces and another tool, the React Developer Tool.
+
+64
+00:02:30,06 --> 00:02:32,07
+The React Developer tool is a development
+
+65
+00:02:32,07 --> 00:02:33,09
+and a debugging tool.
+
+66
+00:02:33,09 --> 00:02:35,08
+Very useful during the demonstration
+
+67
+00:02:35,08 --> 00:02:38,03
+and the development process because you have access
+
+68
+00:02:38,03 --> 00:02:41,00
+to the application tree of your React application
+
+69
+00:02:41,00 --> 00:02:42,06
+directly from the browser.
+
+70
+00:02:42,06 --> 00:02:44,08
+To inspect the state and the props
+
+71
+00:02:44,08 --> 00:02:46,08
+that you can see on the right left side.
+
+72
+00:02:46,08 --> 00:02:49,02
+And all you need to do is to add to your browser.
+
+73
+00:02:49,02 --> 00:02:51,02
+So you should read Add to Chrome in my case
+
+74
+00:02:51,02 --> 00:02:52,05
+because this is already installed,
+
+75
+00:02:52,05 --> 00:02:54,04
+you can read remove from Chrome,
+
+76
+00:02:54,04 --> 00:02:56,02
+but you should read add to Chrome
+
+77
+00:02:56,02 --> 00:02:58,02
+if this is not yet installed.
+
+78
+00:02:58,02 --> 00:02:59,06
+So you're now all set
+
+79
+00:02:59,06 --> 00:03:02,00
+and ready to get started with the class.
+

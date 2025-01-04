@@ -1,0 +1,804 @@
+1
+00:00:00,05 --> 00:00:02,01
+- [Instructor] So let's begin with the second part
+
+2
+00:00:02,01 --> 00:00:03,09
+of the solution to this challenge.
+
+3
+00:00:03,09 --> 00:00:05,08
+We're going to do lots of refactoring.
+
+4
+00:00:05,08 --> 00:00:09,03
+We're going to replace the React API with Zustand.
+
+5
+00:00:09,03 --> 00:00:10,09
+And first let's just make sure
+
+6
+00:00:10,09 --> 00:00:15,06
+that we add to the scope useStore like this.
+
+7
+00:00:15,06 --> 00:00:18,03
+And you see that we already have components,
+
+8
+00:00:18,03 --> 00:00:20,06
+multiple components that needs to be,
+
+9
+00:00:20,06 --> 00:00:23,00
+that needs to subscribe to the state changes
+
+10
+00:00:23,00 --> 00:00:26,05
+by calling this hook directly from the components.
+
+11
+00:00:26,05 --> 00:00:29,02
+So we have header, the header, the footer
+
+12
+00:00:29,02 --> 00:00:34,01
+and we can also create some other components like the form.
+
+13
+00:00:34,01 --> 00:00:35,05
+So I'm going to do that right away.
+
+14
+00:00:35,05 --> 00:00:38,00
+I'm going to put that in its own components.
+
+15
+00:00:38,00 --> 00:00:41,01
+I'm going to do that here.
+
+16
+00:00:41,01 --> 00:00:45,06
+So head to footers, so right below, actually, footer.
+
+17
+00:00:45,06 --> 00:00:53,04
+That's going to be function, it's going to be form.
+
+18
+00:00:53,04 --> 00:00:54,06
+And like this.
+
+19
+00:00:54,06 --> 00:00:57,06
+And we're going to do the same for the list right here.
+
+20
+00:00:57,06 --> 00:01:00,04
+So let's grab this unordered list
+
+21
+00:01:00,04 --> 00:01:04,08
+and put it in its own component.
+
+22
+00:01:04,08 --> 00:01:10,05
+So that's going to be function and then List, return.
+
+23
+00:01:10,05 --> 00:01:11,06
+And that's it.
+
+24
+00:01:11,06 --> 00:01:13,06
+So we just need to refer to this now
+
+25
+00:01:13,06 --> 00:01:16,01
+back in the main component.
+
+26
+00:01:16,01 --> 00:01:21,00
+So that's going to be first the form and the list.
+
+27
+00:01:21,00 --> 00:01:23,09
+So obviously we're not going to be doing any props drilling.
+
+28
+00:01:23,09 --> 00:01:27,05
+So here the goal is to keep the structure flat
+
+29
+00:01:27,05 --> 00:01:29,06
+and allow every components to subscribe
+
+30
+00:01:29,06 --> 00:01:32,00
+to the state changes independently.
+
+31
+00:01:32,00 --> 00:01:34,01
+So that's going to seem like a lot of refactoring.
+
+32
+00:01:34,01 --> 00:01:36,09
+You're going to see that we're going to be doing that step-by-step
+
+33
+00:01:36,09 --> 00:01:40,03
+but you'll see that the process is very simple.
+
+34
+00:01:40,03 --> 00:01:44,04
+First, let's start by moving anything related to the form
+
+35
+00:01:44,04 --> 00:01:46,03
+from the app to the form.
+
+36
+00:01:46,03 --> 00:01:51,01
+So I'm going to grab from line here to,
+
+37
+00:01:51,01 --> 00:01:54,01
+so we have submit, we have archive,
+
+38
+00:01:54,01 --> 00:01:57,07
+and I think that's it for now.
+
+39
+00:01:57,07 --> 00:02:00,09
+Let's go inside the form.
+
+40
+00:02:00,09 --> 00:02:03,02
+So I don't need this, actually, that's going to be here.
+
+41
+00:02:03,02 --> 00:02:05,00
+This one, I'm going to do that right away.
+
+42
+00:02:05,00 --> 00:02:12,04
+It's going to be inside the list.
+
+43
+00:02:12,04 --> 00:02:16,09
+Also for the form, we need to also have access to useRef.
+
+44
+00:02:16,09 --> 00:02:19,04
+So I'm going to add it here.
+
+45
+00:02:19,04 --> 00:02:22,05
+Actually, it's available here at the top.
+
+46
+00:02:22,05 --> 00:02:24,08
+I'm going to cut and add it to the form.
+
+47
+00:02:24,08 --> 00:02:28,00
+It's going to be handled directly from the form.
+
+48
+00:02:28,00 --> 00:02:29,03
+That's it.
+
+49
+00:02:29,03 --> 00:02:32,07
+And next I'm going to start removing.
+
+50
+00:02:32,07 --> 00:02:36,03
+So anything that we no longer need
+
+51
+00:02:36,03 --> 00:02:40,05
+on the app components, let's do that.
+
+52
+00:02:40,05 --> 00:02:41,07
+I'm going to remove that.
+
+53
+00:02:41,07 --> 00:02:46,09
+Same for check and archive here as well.
+
+54
+00:02:46,09 --> 00:02:49,07
+So we want to also to delete the props.
+
+55
+00:02:49,07 --> 00:02:51,01
+So it's already deleted, so that's great.
+
+56
+00:02:51,01 --> 00:02:53,01
+Okay, so let's move forward
+
+57
+00:02:53,01 --> 00:02:56,09
+and then start using the store data.
+
+58
+00:02:56,09 --> 00:03:00,00
+So we're going to call this from inside our component.
+
+59
+00:03:00,00 --> 00:03:02,07
+So that's going to be useStore.
+
+60
+00:03:02,07 --> 00:03:06,05
+And we want to access the functions like submit
+
+61
+00:03:06,05 --> 00:03:09,06
+and also archive.
+
+62
+00:03:09,06 --> 00:03:13,05
+So first we want to be able to update the state.
+
+63
+00:03:13,05 --> 00:03:15,00
+So read the state and update the state.
+
+64
+00:03:15,00 --> 00:03:16,04
+So let's do that now.
+
+65
+00:03:16,04 --> 00:03:20,02
+Here for submit, it's going to be submit.
+
+66
+00:03:20,02 --> 00:03:23,03
+We're going to pass the information of the new item.
+
+67
+00:03:23,03 --> 00:03:26,02
+And there is also this information right here
+
+68
+00:03:26,02 --> 00:03:30,06
+that we want to use as well, which is setInput.
+
+69
+00:03:30,06 --> 00:03:32,02
+We're going to be handling that.
+
+70
+00:03:32,02 --> 00:03:36,06
+So we're going to be using just very little the React API.
+
+71
+00:03:36,06 --> 00:03:40,00
+So when we know that this is just managed locally,
+
+72
+00:03:40,00 --> 00:03:44,04
+so I'm going to add this to my form components right below.
+
+73
+00:03:44,04 --> 00:03:47,01
+For archive I'm just going to change here the name
+
+74
+00:03:47,01 --> 00:03:48,03
+because you see that it conflicts.
+
+75
+00:03:48,03 --> 00:03:50,06
+So I'm going to say archiveAllitems.
+
+76
+00:03:50,06 --> 00:03:54,07
+So I'm going to change, and actually let's just remove
+
+77
+00:03:54,07 --> 00:03:57,04
+all of that because it's going to be handled, actually,
+
+78
+00:03:57,04 --> 00:03:59,07
+the logic is handled separately.
+
+79
+00:03:59,07 --> 00:04:00,09
+So let's just remove that.
+
+80
+00:04:00,09 --> 00:04:03,01
+I'm going to do onSubmit.
+
+81
+00:04:03,01 --> 00:04:05,04
+And for the archive, I believe that's,
+
+82
+00:04:05,04 --> 00:04:07,04
+I think I'm mistaking, okay, let's remove that.
+
+83
+00:04:07,04 --> 00:04:09,08
+It's actually handled from the footer.
+
+84
+00:04:09,08 --> 00:04:11,00
+So let's do that right away.
+
+85
+00:04:11,00 --> 00:04:16,01
+So I'm going to grab also the same hook and add in the footer
+
+86
+00:04:16,01 --> 00:04:19,06
+which is right at the top.
+
+87
+00:04:19,06 --> 00:04:20,05
+Right here.
+
+88
+00:04:20,05 --> 00:04:23,03
+So that's actually here that we're going to be handling
+
+89
+00:04:23,03 --> 00:04:25,05
+the archive function.
+
+90
+00:04:25,05 --> 00:04:28,07
+And same for filter but I think that for filter,
+
+91
+00:04:28,07 --> 00:04:29,06
+the name is different.
+
+92
+00:04:29,06 --> 00:04:32,03
+It's going to be setFilter, if I remember well.
+
+93
+00:04:32,03 --> 00:04:33,02
+Yeah, that is setFilter.
+
+94
+00:04:33,02 --> 00:04:38,01
+So let's just change that to setFilter like this.
+
+95
+00:04:38,01 --> 00:04:43,06
+And so we want to make sure that this is matching
+
+96
+00:04:43,06 --> 00:04:45,08
+what we want to do.
+
+97
+00:04:45,08 --> 00:04:47,02
+So here we have filters.
+
+98
+00:04:47,02 --> 00:04:50,00
+I'm going to change the name to setFilter like so.
+
+99
+00:04:50,00 --> 00:04:51,00
+And we have archive.
+
+100
+00:04:51,00 --> 00:04:55,03
+So I think that for the footer we are almost good to go.
+
+101
+00:04:55,03 --> 00:04:58,02
+Let's verify also for the header.
+
+102
+00:04:58,02 --> 00:05:00,05
+And for the header, we need to access
+
+103
+00:05:00,05 --> 00:05:03,05
+the information of the count.
+
+104
+00:05:03,05 --> 00:05:05,08
+And I think that for the count, actually, it's different.
+
+105
+00:05:05,08 --> 00:05:06,07
+It should be a useMemo.
+
+106
+00:05:06,07 --> 00:05:10,05
+So let's go back to the app component
+
+107
+00:05:10,05 --> 00:05:16,00
+where we have defined a computed here, a variable.
+
+108
+00:05:16,00 --> 00:05:19,07
+So with useMemo, so we're going to be using also useMemo
+
+109
+00:05:19,07 --> 00:05:23,01
+but this is handled, we know that we're using this
+
+110
+00:05:23,01 --> 00:05:25,05
+only locally, so let's go back to the header
+
+111
+00:05:25,05 --> 00:05:27,00
+and add this right here.
+
+112
+00:05:27,00 --> 00:05:30,00
+And that's the only thing that we need to use here.
+
+113
+00:05:30,00 --> 00:05:31,04
+So let's just all do that.
+
+114
+00:05:31,04 --> 00:05:32,08
+And actually no, I'm mistaking.
+
+115
+00:05:32,08 --> 00:05:34,00
+So we need to access all.
+
+116
+00:05:34,00 --> 00:05:36,08
+Let's go back, we need to access all.
+
+117
+00:05:36,08 --> 00:05:40,01
+Read the state and so we can from the existing state,
+
+118
+00:05:40,01 --> 00:05:41,06
+create derived data.
+
+119
+00:05:41,06 --> 00:05:44,06
+So this is what we're doing here.
+
+120
+00:05:44,06 --> 00:05:47,04
+And for the footer, we don't need submit.
+
+121
+00:05:47,04 --> 00:05:49,03
+And I'm going to remove also the props.
+
+122
+00:05:49,03 --> 00:05:52,03
+And you see that we also need here isVisible.
+
+123
+00:05:52,03 --> 00:05:55,00
+So let's grab also this from the app components.
+
+124
+00:05:55,00 --> 00:05:58,07
+I'm going to go grab this from the app component,
+
+125
+00:05:58,07 --> 00:06:01,07
+which is isVisible.
+
+126
+00:06:01,07 --> 00:06:06,05
+And add it...
+
+127
+00:06:06,05 --> 00:06:10,02
+It is inside the footer, should be here.
+
+128
+00:06:10,02 --> 00:06:15,03
+Because this button is going to be visible
+
+129
+00:06:15,03 --> 00:06:19,03
+only if items are crossed of the list.
+
+130
+00:06:19,03 --> 00:06:21,03
+And let's do the same for all items,
+
+131
+00:06:21,03 --> 00:06:23,07
+which is also available.
+
+132
+00:06:23,07 --> 00:06:25,09
+You see that we need this all items.
+
+133
+00:06:25,09 --> 00:06:28,04
+We need to grab this also from the app component.
+
+134
+00:06:28,04 --> 00:06:35,01
+So I'm going to cut this and add it to the list, this one.
+
+135
+00:06:35,01 --> 00:06:37,09
+And for this one, we also need to read the state
+
+136
+00:06:37,09 --> 00:06:39,03
+also by calling the hook.
+
+137
+00:06:39,03 --> 00:06:43,01
+So let's do that as well for the list.
+
+138
+00:06:43,01 --> 00:06:46,04
+And we need to access multiple information.
+
+139
+00:06:46,04 --> 00:06:49,05
+So for the check, actually let me also update that
+
+140
+00:06:49,05 --> 00:06:53,06
+because this is going to be handled actually
+
+141
+00:06:53,06 --> 00:06:57,03
+with the action which is defined in the store.
+
+142
+00:06:57,03 --> 00:06:59,00
+I don't need submit.
+
+143
+00:06:59,00 --> 00:07:03,03
+However, I'm going to need all.
+
+144
+00:07:03,03 --> 00:07:06,03
+I think it's good.
+
+145
+00:07:06,03 --> 00:07:10,04
+And now I'm just going to remove all of that
+
+146
+00:07:10,04 --> 00:07:14,05
+because no need to pass any states
+
+147
+00:07:14,05 --> 00:07:17,01
+or store data by using the props.
+
+148
+00:07:17,01 --> 00:07:19,06
+And let's remove that as well.
+
+149
+00:07:19,06 --> 00:07:20,07
+Okay, so if we try that.
+
+150
+00:07:20,07 --> 00:07:22,05
+So we're just going to make sure that this is up and running.
+
+151
+00:07:22,05 --> 00:07:25,02
+So let's try to run the app.
+
+152
+00:07:25,02 --> 00:07:28,03
+I'm going to make sure that I am in the right spot.
+
+153
+00:07:28,03 --> 00:07:30,06
+So that should be
+
+154
+00:07:30,06 --> 00:07:34,01
+the directory for the exercise demo
+
+155
+00:07:34,01 --> 00:07:38,01
+that corresponds to the video 06 of chapter five.
+
+156
+00:07:38,01 --> 00:07:50,04
+I'm going to go to the final one and then run npm start.
+
+157
+00:07:50,04 --> 00:07:52,06
+So here we're just missing one thing, which is filter.
+
+158
+00:07:52,06 --> 00:07:54,09
+So let's go check it out.
+
+159
+00:07:54,09 --> 00:07:58,04
+Filter should be, oh, here so we have
+
+160
+00:07:58,04 --> 00:07:59,07
+a better sense of what's missing.
+
+161
+00:07:59,07 --> 00:08:04,06
+So that's going to be inside the app.js line 44, line 45.
+
+162
+00:08:04,06 --> 00:08:15,03
+I'm going to check quickly.
+
+163
+00:08:15,03 --> 00:08:18,00
+This here, so we are missing,
+
+164
+00:08:18,00 --> 00:08:19,05
+so we don't read the state, which is all.
+
+165
+00:08:19,05 --> 00:08:23,04
+So let's update that as well.
+
+166
+00:08:23,04 --> 00:08:27,07
+Same for line 91, because that's a lot of refactoring.
+
+167
+00:08:27,07 --> 00:08:29,09
+We're going through lots of refactoring.
+
+168
+00:08:29,09 --> 00:08:33,08
+Archive, so I'm going to make sure that this is also,
+
+169
+00:08:33,08 --> 00:08:41,09
+I can access it from the store.
+
+170
+00:08:41,09 --> 00:08:49,01
+And then 135, which is lower.
+
+171
+00:08:49,01 --> 00:08:51,09
+Right here, so this is filter.
+
+172
+00:08:51,09 --> 00:08:54,00
+Or we're checking filter, so that should be yes.
+
+173
+00:08:54,00 --> 00:08:56,04
+We want to check which option it is so we know
+
+174
+00:08:56,04 --> 00:08:59,08
+which the status of the list either displaying
+
+175
+00:08:59,08 --> 00:09:03,06
+if it is active, completed or display all.
+
+176
+00:09:03,06 --> 00:09:04,09
+Finally in the store.
+
+177
+00:09:04,09 --> 00:09:11,01
+So I am missing something which is line 15 and 16.
+
+178
+00:09:11,01 --> 00:09:13,04
+And that's because we must remember
+
+179
+00:09:13,04 --> 00:09:17,03
+that we must actually read from first the store.
+
+180
+00:09:17,03 --> 00:09:20,07
+So I'm going to update that.
+
+181
+00:09:20,07 --> 00:09:22,02
+And same for all.
+
+182
+00:09:22,02 --> 00:09:27,06
+I'm going to update and we're going to be good to go.
+
+183
+00:09:27,06 --> 00:09:31,03
+I just need to remove one variable, which isn't used.
+
+184
+00:09:31,03 --> 00:09:37,04
+Let's go back to line 19.
+
+185
+00:09:37,04 --> 00:09:39,07
+And yeah, we don't need to use this one
+
+186
+00:09:39,07 --> 00:09:44,01
+because we access it from the store now.
+
+187
+00:09:44,01 --> 00:09:52,02
+So let's just run again for a final check.
+
+188
+00:09:52,02 --> 00:09:53,00
+And here we go.
+
+189
+00:09:53,00 --> 00:09:55,08
+So now we are ready to try our app again.
+
+190
+00:09:55,08 --> 00:09:57,06
+So this is up and running just nicely.
+
+191
+00:09:57,06 --> 00:10:00,03
+We can clear the items that are completed.
+
+192
+00:10:00,03 --> 00:10:04,00
+We can display just the active ones or the completed ones
+
+193
+00:10:04,00 --> 00:10:06,03
+or decide to display them all.
+
+194
+00:10:06,03 --> 00:10:08,08
+Excellent, so you see that with these examples
+
+195
+00:10:08,08 --> 00:10:11,06
+and this challenge that the setup with Zustand
+
+196
+00:10:11,06 --> 00:10:13,08
+is fast and easy with no fuss.
+
+197
+00:10:13,08 --> 00:10:17,04
+And also it is very familiar for any React developer.
+
+198
+00:10:17,04 --> 00:10:19,06
+So Zustand makes it very easy to manage
+
+199
+00:10:19,06 --> 00:10:22,06
+and access the state in your application
+
+200
+00:10:22,06 --> 00:10:24,06
+which makes it a very friendly alternative
+
+201
+00:10:24,06 --> 00:10:32,00
+to all the state management solutions.
+

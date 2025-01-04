@@ -1,0 +1,352 @@
+1
+00:00:00,06 --> 00:00:02,07
+- [Instructor] Let's begin with the context API.
+
+2
+00:00:02,07 --> 00:00:05,00
+First, we want to create a new context object.
+
+3
+00:00:05,00 --> 00:00:08,01
+So we do that with this method, which is createContext.
+
+4
+00:00:08,01 --> 00:00:09,07
+And so, every new context object
+
+5
+00:00:09,07 --> 00:00:11,05
+comes with one component provider
+
+6
+00:00:11,05 --> 00:00:15,01
+that we use to share global states across the application.
+
+7
+00:00:15,01 --> 00:00:16,09
+So let's say one quick example,
+
+8
+00:00:16,09 --> 00:00:18,06
+createContext that we're going to use
+
+9
+00:00:18,06 --> 00:00:20,06
+to create a new context objects.
+
+10
+00:00:20,06 --> 00:00:23,02
+And in this example, we want to share common settings
+
+11
+00:00:23,02 --> 00:00:26,00
+about this style in order to change the appearance
+
+12
+00:00:26,00 --> 00:00:27,07
+across the entire application.
+
+13
+00:00:27,07 --> 00:00:30,05
+And so, every context object comes with one component,
+
+14
+00:00:30,05 --> 00:00:33,02
+the provider, that will allow to share global states
+
+15
+00:00:33,02 --> 00:00:34,07
+across the application.
+
+16
+00:00:34,07 --> 00:00:36,09
+And what we're going to do with this component provider
+
+17
+00:00:36,09 --> 00:00:40,07
+is to wrap the top level component, so any components,
+
+18
+00:00:40,07 --> 00:00:42,09
+descending components of this component provider
+
+19
+00:00:42,09 --> 00:00:45,01
+will have access to the global state.
+
+20
+00:00:45,01 --> 00:00:46,08
+And so, this component provider
+
+21
+00:00:46,08 --> 00:00:49,02
+accepts one single prop value
+
+22
+00:00:49,02 --> 00:00:51,08
+that we're going to use to share global state.
+
+23
+00:00:51,08 --> 00:00:53,04
+So I'm going to copy these two lines
+
+24
+00:00:53,04 --> 00:00:57,06
+because we're going to use them in our next example.
+
+25
+00:00:57,06 --> 00:00:59,07
+Let's go back to our demonstration.
+
+26
+00:00:59,07 --> 00:01:03,03
+Here I'm going to go ahead and create a new context file
+
+27
+00:01:03,03 --> 00:01:06,03
+and I'm going to paste these two new lines.
+
+28
+00:01:06,03 --> 00:01:10,01
+So we're going to make sure that we import first createContext
+
+29
+00:01:10,01 --> 00:01:12,04
+in order to create a new context object,
+
+30
+00:01:12,04 --> 00:01:15,02
+so I don't need to have a default value, so I remove that,
+
+31
+00:01:15,02 --> 00:01:19,08
+and I'm going to simply name this context object Context.
+
+32
+00:01:19,08 --> 00:01:24,04
+Next, I'm going to create a new component provider
+
+33
+00:01:24,04 --> 00:01:27,03
+and we're going to need to have access to the children,
+
+34
+00:01:27,03 --> 00:01:29,06
+I'm going to explain in a moment,
+
+35
+00:01:29,06 --> 00:01:32,02
+this corresponds to the descending component.
+
+36
+00:01:32,02 --> 00:01:33,08
+And so, as I was explaining,
+
+37
+00:01:33,08 --> 00:01:35,06
+every new context object
+
+38
+00:01:35,06 --> 00:01:39,02
+gives access to the component provider.
+
+39
+00:01:39,02 --> 00:01:40,00
+There we go.
+
+40
+00:01:40,00 --> 00:01:42,04
+And so, all the descending components
+
+41
+00:01:42,04 --> 00:01:43,06
+of this component provider
+
+42
+00:01:43,06 --> 00:01:45,03
+will have access to the global state
+
+43
+00:01:45,03 --> 00:01:49,03
+which is going to be shared by this single prop value.
+
+44
+00:01:49,03 --> 00:01:52,00
+And for now, we're just going to share an empty object.
+
+45
+00:01:52,00 --> 00:01:53,04
+Next, we're going to export default
+
+46
+00:01:53,04 --> 00:01:58,08
+so we can import this component provider outside.
+
+47
+00:01:58,08 --> 00:02:01,08
+Let's go in the entry points of the app,
+
+48
+00:02:01,08 --> 00:02:03,06
+and we're going to import this one right here
+
+49
+00:02:03,06 --> 00:02:08,08
+because what we want is to wrap the top level component
+
+50
+00:02:08,08 --> 00:02:12,00
+with this component provider, like this.
+
+51
+00:02:12,00 --> 00:02:13,07
+Here we go.
+
+52
+00:02:13,07 --> 00:02:15,03
+And so, I'm going to make sure that
+
+53
+00:02:15,03 --> 00:02:17,02
+now the app is up and running
+
+54
+00:02:17,02 --> 00:02:20,00
+because now I'm going to show you, in our example,
+
+55
+00:02:20,00 --> 00:02:26,03
+in the browser, I'm going to open the reactive tools.
+
+56
+00:02:26,03 --> 00:02:27,04
+And now you're going to see that
+
+57
+00:02:27,04 --> 00:02:29,02
+you have your top level components
+
+58
+00:02:29,02 --> 00:02:32,00
+and the parent component is this one, the provider,
+
+59
+00:02:32,00 --> 00:02:33,05
+which is that the top level.
+
+60
+00:02:33,05 --> 00:02:37,04
+So any component that comes inside, which is nested,
+
+61
+00:02:37,04 --> 00:02:38,08
+which is the descending component
+
+62
+00:02:38,08 --> 00:02:40,02
+of this component provider,
+
+63
+00:02:40,02 --> 00:02:42,06
+will have access to the global state
+
+64
+00:02:42,06 --> 00:02:44,07
+which is shared by this component provider.
+
+65
+00:02:44,07 --> 00:02:46,01
+So in this video,
+
+66
+00:02:46,01 --> 00:02:48,09
+what we did is to create a new context object,
+
+67
+00:02:48,09 --> 00:02:51,03
+and then a new component provider.
+
+68
+00:02:51,03 --> 00:02:53,05
+Now the descending component of the provider
+
+69
+00:02:53,05 --> 00:02:56,06
+can access the values of the context objects
+
+70
+00:02:56,06 --> 00:02:58,04
+and then we can manage the state globally
+
+71
+00:02:58,04 --> 00:02:59,09
+with the context API.
+
+72
+00:02:59,09 --> 00:03:02,07
+So there are five steps to using the react context.
+
+73
+00:03:02,07 --> 00:03:04,06
+First, we create a context object
+
+74
+00:03:04,06 --> 00:03:07,04
+using the method createContext
+
+75
+00:03:07,04 --> 00:03:10,04
+that we do right here at the top.
+
+76
+00:03:10,04 --> 00:03:13,05
+Then we create a component provider
+
+77
+00:03:13,05 --> 00:03:15,05
+and we're going to put any value
+
+78
+00:03:15,05 --> 00:03:18,04
+in this single prop by using the value prop.
+
+79
+00:03:18,04 --> 00:03:21,02
+And next we're going to wrap the top level component
+
+80
+00:03:21,02 --> 00:03:23,01
+with this component provider
+
+81
+00:03:23,01 --> 00:03:25,05
+at the top level of the application tree.
+
+82
+00:03:25,05 --> 00:03:28,00
+Then we're going to use the context value
+
+83
+00:03:28,00 --> 00:03:30,08
+in order to share across the application,
+
+84
+00:03:30,08 --> 00:03:33,01
+so we can be ready to share the global states
+
+85
+00:03:33,01 --> 00:03:34,05
+across the applications
+
+86
+00:03:34,05 --> 00:03:36,04
+with every components of the applications.
+
+87
+00:03:36,04 --> 00:03:38,02
+So this is what we are doing next,
+
+88
+00:03:38,02 --> 00:03:41,00
+we're going to create global values.
+

@@ -1,0 +1,224 @@
+1
+00:00:00,06 --> 00:00:02,02
+- [Instructor] The Recoil API is very similar
+
+2
+00:00:02,02 --> 00:00:03,05
+to the React useState Hook,
+
+3
+00:00:03,05 --> 00:00:05,07
+except that it takes a RecoilState instead
+
+4
+00:00:05,07 --> 00:00:07,03
+of a default value as arguments.
+
+5
+00:00:07,03 --> 00:00:10,02
+So let's see how it works.
+
+6
+00:00:10,02 --> 00:00:12,00
+We're going to see an example right here.
+
+7
+00:00:12,00 --> 00:00:13,05
+So you're going to make sure that you add
+
+8
+00:00:13,05 --> 00:00:16,05
+to the scope of your projects, useRecoilState,
+
+9
+00:00:16,05 --> 00:00:17,08
+and the way that you define it,
+
+10
+00:00:17,08 --> 00:00:21,09
+it's going to be very similar to the React's useState.
+
+11
+00:00:21,09 --> 00:00:23,03
+So instead here,
+
+12
+00:00:23,03 --> 00:00:24,05
+instead of the default value,
+
+13
+00:00:24,05 --> 00:00:28,02
+it's going to be the atom that we have defined earlier.
+
+14
+00:00:28,02 --> 00:00:30,05
+And it's going to be the same as with useState.
+
+15
+00:00:30,05 --> 00:00:32,05
+It's going to return an array
+
+16
+00:00:32,05 --> 00:00:37,04
+with the first element being the current value of the state.
+
+17
+00:00:37,04 --> 00:00:39,07
+And the second element is the setup function
+
+18
+00:00:39,07 --> 00:00:41,04
+that we use to update the value
+
+19
+00:00:41,04 --> 00:00:44,01
+of the given state when it is called.
+
+20
+00:00:44,01 --> 00:00:46,09
+And so this hook useRecoilState will subscribe
+
+21
+00:00:46,09 --> 00:00:47,07
+to the components,
+
+22
+00:00:47,07 --> 00:00:51,07
+will subscribe to the state, which is contains in the atom,
+
+23
+00:00:51,07 --> 00:00:53,01
+so the component re-renders
+
+24
+00:00:53,01 --> 00:00:56,06
+for any change in the requested states.
+
+25
+00:00:56,06 --> 00:00:58,06
+So let's go back to our startup project.
+
+26
+00:00:58,06 --> 00:01:01,03
+Here the goal will be to replace the current useState
+
+27
+00:01:01,03 --> 00:01:04,02
+that we have listed inside the App component.
+
+28
+00:01:04,02 --> 00:01:05,09
+So we have several of them.
+
+29
+00:01:05,09 --> 00:01:08,06
+And instead, we're going to use the hook useRecoilStates
+
+30
+00:01:08,06 --> 00:01:11,07
+to subscribe to the state, which are contained in atoms.
+
+31
+00:01:11,07 --> 00:01:13,06
+And so this will allow to read
+
+32
+00:01:13,06 --> 00:01:16,00
+and update the state with useRecoilState,
+
+33
+00:01:16,00 --> 00:01:18,00
+which has a similar syntax of the useState.
+
+34
+00:01:18,00 --> 00:01:20,02
+So we don't need to change much right here.
+
+35
+00:01:20,02 --> 00:01:23,06
+First, we just need to make sure that we add to the scope.
+
+36
+00:01:23,06 --> 00:01:26,06
+So useRecoilState like so.
+
+37
+00:01:26,06 --> 00:01:29,08
+Let's go back to inside the App component.
+
+38
+00:01:29,08 --> 00:01:32,09
+We're going to replace here with useRecoilState.
+
+39
+00:01:32,09 --> 00:01:35,03
+And instead of adding a default value,
+
+40
+00:01:35,03 --> 00:01:38,02
+we're going to specify the atom that we have defined,
+
+41
+00:01:38,02 --> 00:01:41,05
+which will be in this case listState.
+
+42
+00:01:41,05 --> 00:01:47,00
+Let's do the same for this variable.
+
+43
+00:01:47,00 --> 00:01:53,06
+And here it's going to be the atom allStates.
+
+44
+00:01:53,06 --> 00:01:59,05
+For isFiltered, it's going to be filterState.
+
+45
+00:01:59,05 --> 00:02:02,04
+And there is one last, which is inputValue.
+
+46
+00:02:02,04 --> 00:02:05,04
+So I'm going to go ahead and add this one right here.
+
+47
+00:02:05,04 --> 00:02:09,02
+And that's going to be useRecoilStates
+
+48
+00:02:09,02 --> 00:02:14,01
+and it's going to be inputValue like so.
+
+49
+00:02:14,01 --> 00:02:15,03
+So that's done for this part.
+
+50
+00:02:15,03 --> 00:02:19,09
+You can see that now we've been able to subscribe
+
+51
+00:02:19,09 --> 00:02:22,07
+to the states, which are contained in Atom.
+
+52
+00:02:22,07 --> 00:02:24,08
+So this is very simple, a very simple process
+
+53
+00:02:24,08 --> 00:02:27,00
+because the syntax is very similar
+
+54
+00:02:27,00 --> 00:02:30,05
+to the useState hook from the React API.
+
+55
+00:02:30,05 --> 00:02:33,05
+Next, we see how to create derived data
+
+56
+00:02:33,05 --> 00:02:36,00
+from the state with selectors.
+

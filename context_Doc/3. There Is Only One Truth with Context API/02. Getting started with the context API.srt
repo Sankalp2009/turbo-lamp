@@ -1,0 +1,132 @@
+1
+00:00:00,05 --> 00:00:02,03
+- [Instructor] In a typical React application,
+
+2
+00:00:02,03 --> 00:00:05,01
+data is passed top-down, from parents to child,
+
+3
+00:00:05,01 --> 00:00:06,03
+via the props.
+
+4
+00:00:06,03 --> 00:00:09,00
+This needs to be done manually, from top to bottom,
+
+5
+00:00:09,00 --> 00:00:11,03
+by going through every component's level,
+
+6
+00:00:11,03 --> 00:00:13,09
+which can be very tedious and difficult to maintain.
+
+7
+00:00:13,09 --> 00:00:17,00
+This works very well for small and basic applications.
+
+8
+00:00:17,00 --> 00:00:19,00
+But imagine you have much bigger applications
+
+9
+00:00:19,00 --> 00:00:20,05
+with multiple levels.
+
+10
+00:00:20,05 --> 00:00:22,04
+It can become very challenging.
+
+11
+00:00:22,04 --> 00:00:24,06
+And so the more complex is the application,
+
+12
+00:00:24,06 --> 00:00:27,07
+the more complex is the communications between components
+
+13
+00:00:27,07 --> 00:00:29,09
+and the more complex it is to share the state
+
+14
+00:00:29,09 --> 00:00:31,05
+across the application.
+
+15
+00:00:31,05 --> 00:00:33,08
+The solution is the Context API.
+
+16
+00:00:33,08 --> 00:00:36,09
+That is a way to share values without having to explicitly
+
+17
+00:00:36,09 --> 00:00:39,02
+and manually pass the data from the parents
+
+18
+00:00:39,02 --> 00:00:41,01
+to the child components.
+
+19
+00:00:41,01 --> 00:00:44,06
+So why use a context object and the Context API?
+
+20
+00:00:44,06 --> 00:00:47,02
+First, it provides a way to manage the application state
+
+21
+00:00:47,02 --> 00:00:49,04
+in a single, centralized location.
+
+22
+00:00:49,04 --> 00:00:52,03
+And it helps to avoid the common pitfall of props drilling.
+
+23
+00:00:52,03 --> 00:00:55,03
+So you don't need to pass the data manually and explicitly
+
+24
+00:00:55,03 --> 00:00:57,06
+by going through every component's level.
+
+25
+00:00:57,06 --> 00:01:00,04
+You just need to define a global state, which is shared
+
+26
+00:01:00,04 --> 00:01:01,09
+with several components.
+
+27
+00:01:01,09 --> 00:01:05,01
+In one single location, the state is easier to manage
+
+28
+00:01:05,01 --> 00:01:07,03
+and easier to synchronize across the components
+
+29
+00:01:07,03 --> 00:01:09,00
+of the application.
+
+30
+00:01:09,00 --> 00:01:10,03
+So let's see it in action.
+
+31
+00:01:10,03 --> 00:01:11,08
+We're going to refactor the application
+
+32
+00:01:11,08 --> 00:01:14,04
+and see what we can do with the Context API.
+
+33
+00:01:14,04 --> 00:01:18,00
+Coming next, we're going to create a new context object.
+
