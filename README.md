@@ -6,7 +6,7 @@
 ## State 
 ### Functional State Update Approach | Batch scheduling: 
 
-* The first statement uses a functional update (oldState => [...oldState, InputData]). This ensures that the state update is based on the most recent state, which is crucial in asynchronous environments like React where state updates might be batched.
+* The statement uses a functional update (oldState => [...oldState, InputData]). This ensures that the state update is based on the most recent state, which is crucial in asynchronous environments like React where state updates might be batched.
 
 ## Props
 * while passing a prop first entity would be an key which passed as an argument and second Entity which was in curly braces call in parent component
