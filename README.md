@@ -102,8 +102,47 @@
 
 ### Prop Drilling
 
-- It is a process of sending data or props from a higher-level component to a lower-level component.
+- It refers to the process of passing data (props) from a parent component through multiple layers of child components to a deeply nested component that actually needs the data.
 
 ### Example
 
+- import React from 'react';
+
+const ParentComponent = () => {
+const data = "Hello from Parent!";
+
+return (
+
+<div>
+<ChildComponent data={data} />
+</div>
+);
+};
+
+const ChildComponent = ({ data }) => {
+return (
+
+<div>
+<GrandchildComponent data={data} />
+</div>
+);
+};
+
+const GrandchildComponent = ({ data }) => {
+return (
+
+<div>
+{data}
+</div>
+);
+};
+
+- the data prop is passed from ParentComponent to ChildComponent and finally to GrandchildComponent. Even though ChildComponent doesn't actually need the data, it acts as a "middleman" to pass it down.
+
+### Visual Representation
+
 - ![Prop Drilling](image.png)
+
+### Issue
+
+-
