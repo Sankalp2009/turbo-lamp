@@ -100,7 +100,7 @@
 
 ## Context Api
 
-### Prop Drilling
+#### Prop Drilling
 
 - It refers to the process of passing data (props) from a parent component through multiple layers of child components to a deeply nested component that actually needs the data.
 
@@ -146,7 +146,7 @@ div>
 
 ### Issue
 - Make code harder to understand and maintain
-- Unnecessary use of component which actually don't need to the data.
+- Unnecessary use of component which actually don't need the data.
 
 ### Solution
 - context api
