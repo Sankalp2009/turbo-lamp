@@ -5,7 +5,7 @@
 
 ## State
 
-### Functional State Update Approach | Batch scheduling:
+#### Functional State Update Approach | Batch scheduling:
 
 - The statement uses a functional update (oldState => [...oldState, InputData]). This ensures that the state update is based on the most recent state, which is crucial in asynchronous environments like React where state updates might be batched.
 
@@ -25,7 +25,7 @@
 
 ## Example
 
-### Vanilla JS
+#### Vanilla JS
 
 - function car(model,type){
   return(
@@ -34,7 +34,7 @@
   }
   car("Ford", "Muscle Hatchback")
 
-### React
+#### React
 
 - function car (){
   return(
@@ -52,7 +52,7 @@
 
 ## Component Extraction or props variation
 
-### Variation 1: same approach as followed
+#### Variation 1: same approach as followed
 
 - Parent : {Dash item={item}}
 - Child : const Item = (props) => (
@@ -63,7 +63,7 @@
   (li)
   );
 
-### Variation 2: sending all the properties while map and destructure props in child
+#### Variation 2: sending all the properties while map and destructure props in child
 
 - Parent : {list.map((item) => (
   (Item
@@ -84,7 +84,7 @@
   (li)
   );
 
-### Variation 3: sending spread properties while map and destructure props in child(same as var 2)
+#### Variation 3: sending spread properties while map and destructure props in child(same as var 2)
 
 - Parent : {list.map((item) => (
   (Item key={item.objectID} {...item}/>)
@@ -104,7 +104,7 @@
 
 - It refers to the process of passing data (props) from a parent component through multiple layers of child components to a deeply nested component that actually needs the data.
 
-### Example
+#### Example
 
 - import React from 'react';
 
@@ -140,11 +140,11 @@ div>
 - the data prop is passed from ParentComponent to ChildComponent and finally to GrandchildComponent. 
 - Even though ChildComponent doesn't actually need the data, it acts as a "middleman" to pass it down.
 
-### Visual Representation
+#### Visual Representation
 
 ![Prop Drilling](image.png)
 
-### Issue
+#### Issue
 - Make code harder to understand and maintain
 - Unnecessary use of component which actually don't need the data.
 
