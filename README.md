@@ -151,3 +151,60 @@ div>
 ### Solution
 - context api
 - Redux or other state management system
+
+## context api
+- It is a a way to pass data through the component tree without having to pass props down manually at every level.
+- It is used to pass global variables anywhere in the code without the prop drilling.
+
+### Procedure
+
+* Creating and export a new context object
+* Providing a context object with the same name as the context object created above and pass it with value.
+* Wrap the parent component inside component where context object is created, So that every children can access the data.
+* Use the context object created above using useContext() hook
+
+## Code
+### contextProvider.jsx (Provider)
+
+import React from "react";
+
+import { useState } from "react";
+
+export const GlobalInfo = React.createContext(null);
+
+const contextProvider = ({ children }) => {
+  const [theme, setTheme] = useState("dark");
+
+  const ToggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return 
+    GlobalInfo.Provider value={{ theme, ToggleTheme }}>
+      {children}
+    GlobalInfo.Provider>
+
+    OR
+  - sending as key value pairs  
+    GlobalInfo.Provider value={{ Theme : theme, AnyFunctionName : ToggleTheme }}>
+      {children}
+    GlobalInfo.Provider>
+};
+
+export default contextProvider;
+
+### Index.jsx (wrapper)
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import contextProvider from "./Components/contextProvider";
+createRoot(document.getElementById("root")).render(
+  contextProvider
+    App 
+  contextProvider
+);
+
+### consumer.jsx (consumer)
+import { useContext } from "react";
+import { GlobalInfo } from "./Components/contextProvider";
+const { theme, ToggleTheme } = useContext(GlobalInfo);
