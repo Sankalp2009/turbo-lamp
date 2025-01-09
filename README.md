@@ -113,27 +113,27 @@ const data = "Hello from Parent!";
 
 return (
 
-<div>
-<ChildComponent data={data} />
-</div>
+div
+ChildComponent data={data} />
+/div>
 );
 };
 
 const ChildComponent = ({ data }) => {
 return (
 
-<div>
-<GrandchildComponent data={data} />
-</div>
+div
+GrandchildComponent data={data} />
+div>
 );
 };
 
 const GrandchildComponent = ({ data }) => {
 return (
 
-<div>
+div>
 {data}
-</div>
+div>
 );
 };
 
@@ -141,7 +141,7 @@ return (
 
 ### Visual Representation
 
-- ![Prop Drilling](image.png)
+![Prop Drilling](image.png)
 
 ### Issue
 
