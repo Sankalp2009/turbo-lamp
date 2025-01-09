@@ -137,12 +137,17 @@ div>
 );
 };
 
-- the data prop is passed from ParentComponent to ChildComponent and finally to GrandchildComponent. Even though ChildComponent doesn't actually need the data, it acts as a "middleman" to pass it down.
+- the data prop is passed from ParentComponent to ChildComponent and finally to GrandchildComponent. 
+- Even though ChildComponent doesn't actually need the data, it acts as a "middleman" to pass it down.
 
 ### Visual Representation
 
 ![Prop Drilling](image.png)
 
 ### Issue
+- Make code harder to understand and maintain
+- Unnecessary use of component which actually don't need to the data.
 
--
+### Solution
+- context api
+- Redux or other state management system
