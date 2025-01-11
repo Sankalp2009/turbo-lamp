@@ -152,7 +152,7 @@ div>
 - context api
 - Redux or other state management system
 
-## context api
+### context api Definition
 - It is a a way to pass data through the component tree without having to pass props down manually at every level.
 - It is used to pass global variables anywhere in the code without the prop drilling.
 
@@ -208,3 +208,5 @@ createRoot(document.getElementById("root")).render(
 import { useContext } from "react";
 import { GlobalInfo } from "./Components/contextProvider";
 const { theme, ToggleTheme } = useContext(GlobalInfo);
+
+## Routing
