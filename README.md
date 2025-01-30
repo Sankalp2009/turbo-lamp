@@ -1,4 +1,4 @@
-# points of Reacts
+# points of React
 
 1. Always use functional approach to update an state or store data into Array or Object
 2. React is everything about Family Matter's (Parent-child-sibling communication)

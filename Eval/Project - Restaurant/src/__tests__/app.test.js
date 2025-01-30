@@ -62,7 +62,7 @@ describe("Pagination component", () => {
     expect(pages.length).toBe(5);
     [
       // disabled correct one
-      (null, true, null, null, null),
+      (null, true, null, null, null),   
     ].forEach((state, i) => {
       expect(pages[i].textContent.trim()).toBe(`${i + 1}`);
       expect(pages[i].getAttribute("disabled")).toBe(state);
