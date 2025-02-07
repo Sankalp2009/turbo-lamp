@@ -210,3 +210,4 @@ import { GlobalInfo } from "./Components/contextProvider";
 const { theme, ToggleTheme } = useContext(GlobalInfo);
 
 ## Routing
+### Procedure
