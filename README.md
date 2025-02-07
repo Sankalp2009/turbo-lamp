@@ -194,20 +194,25 @@ const contextProvider = ({ children }) => {
 export default contextProvider;
 
 ### Index.jsx (wrapper)
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import contextProvider from "./Components/contextProvider";
-createRoot(document.getElementById("root")).render(
+- import { createRoot } from "react-dom/client";
+- import "./index.css";
+- import App from "./App.jsx";
+- import contextProvider from "./Components/contextProvider";
+- createRoot(document.getElementById("root")).render(
   contextProvider
     App 
   contextProvider
 );
 
 ### consumer.jsx (consumer)
-import { useContext } from "react";
-import { GlobalInfo } from "./Components/contextProvider";
-const { theme, ToggleTheme } = useContext(GlobalInfo);
+- import { useContext } from "react";
+- import { GlobalInfo } from "./Components/contextProvider";
+- const { theme, ToggleTheme } = useContext(GlobalInfo);
 
 ## Routing
 ### Procedure
+- Install using  npm i react-router-dom@6 or latest version
+- Wrap The parent component with BrowserRouter
+- Create Routes using Routes,Route, path, element
+- Create common Routes component AllRoutes
+- Create Private Routes component(if Needed)
