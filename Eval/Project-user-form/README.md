@@ -15,7 +15,7 @@
  ✅ Check if the Role is being selected from FrontEnd Developer, BackEnd Developer, FullStack Developer option - 1 mark
  ✅ should render no users found text initially when there is no users data  - 1 mark
  ✅ should display details in a table - 2 marks
- ✅ should reset the fileds with intitial data once the details are submitted - 2 marks
+ ✅ should reset the fields with initial data once the details are submitted - 2 marks
 ```
 
 ## Description

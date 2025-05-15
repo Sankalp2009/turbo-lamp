@@ -9,7 +9,7 @@ const AuthContext = ({children}) =>{
     const [isAuth, setIsAuth] = useState(false);
     
     const ToggleAuth = () =>{
-        setIsAuth(!isAuth);
+        setIsAuth(isAuth !== false);
     }
     return (
         <GlobalInfo.Provider value={{isAuth, ToggleAuth}}>

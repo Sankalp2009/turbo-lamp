@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
@@ -12,6 +12,7 @@ const InitialState = () => ({
   country: "",
 });
 
+
 const DashForm = ({ CallBack }) => {
   const [isInput, setIsInput] = useState(InitialState);
 
@@ -21,10 +22,8 @@ const DashForm = ({ CallBack }) => {
     const newValue = type === "checkbox" ? checked : value;
 
     setIsInput((oldState) => {
-      return {
-        ...oldState,
-        [name]: newValue,
-      };
+      oldState[name] = newValue;
+      return { ...oldState };
     });
   };
 

@@ -1,17 +1,15 @@
-import "./App.css";
-import Header from './Components/Header';
-import AllRoutes from './Pages/AllRoutes';
-import PrivateRoute from './Components/PrivateRoute';
-PrivateRoute
 
+import './App.css'
+import AllRoutes from './Component/AllRoutes';
+import Navbar from './Component/Navbar';
 function App() {
+  
   return (
     <>
-      <Header />
-      <AllRoutes />
-      <PrivateRoute />
+    <Navbar />
+    <AllRoutes />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

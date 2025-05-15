@@ -7,7 +7,7 @@ function App() {
 
 
   const HandleInputChange= (InputData) => {
-    setData(oldState=>[...oldState,InputData])
+    setData([...data,InputData])
   };
 
 

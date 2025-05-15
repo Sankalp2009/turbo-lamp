@@ -156,7 +156,7 @@ div>
 - It is a a way to pass data through the component tree without having to pass props down manually at every level.
 - It is used to pass global variables anywhere in the code without the prop drilling.
 
-### Procedure
+### Procedure 
 
 * Creating and export a new context object
 * Providing a context object with the same name as the context object created above and pass it with value.

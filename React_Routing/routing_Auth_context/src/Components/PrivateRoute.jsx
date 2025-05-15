@@ -5,8 +5,8 @@ import { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({children}) =>{
-   const {isAuth} = useContext(GlobalInfo)
-   console.log(isAuth)
+   const {isAuth} = useContext(GlobalInfo);
+   
    if(!isAuth){
     return <Navigate to="/" />
    }
