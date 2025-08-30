@@ -23,7 +23,7 @@
     },
     {
       "title": "Drive",
-      "author": "Daniel Pink",
+      "author": "Daniel Pink",  
       "year": "2009",
       "price": 399,
       "img": "https://m.media-amazon.com/images/I/41DfCl8b1TL.jpg"
@@ -43,4 +43,3 @@
       "img": "https://m.media-amazon.com/images/I/51B7XojAOJL.jpg"
     }
   ]
-  

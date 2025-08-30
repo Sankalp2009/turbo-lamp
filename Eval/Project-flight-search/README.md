@@ -13,7 +13,7 @@
  ✅ Flight search works as expected - Search 1 - 1 mark
  ✅ Flight search works as expected - Search 2 -  2 marks
  ✅ Shows No Flights Found when no matches found - 1 mark
- ✅ Perform multiple searches and dispaly the results in a tabular format - 2 marks
+ ✅ Perform multiple searches and display the results in a tabular format - 2 marks
  ✅ fetch flight data call should work properly with mock data - 2 marks
 ```
 
@@ -24,7 +24,7 @@
   ` https://6098f0d799011f001713fbf3.mockapi.io/techcurators/products/flights/1`
 - when the source and destination fields are empty display No Flights Found.
   ![](https://i.imgur.com/mox1Bux.png)
-- once user enters the details and clicked on search button filter the data whicthc matches the source and desination in the received API response and display it in a tabular format
+- once user enters the details and clicked on search button filter the data will matches the source and destination in the received API response and display it in a tabular format
   ![](https://i.imgur.com/KSJrG06.png)
   - if there is no match found for the given source and destination No Flight Found should be displayed
     ![](https://i.imgur.com/YUw4lS0.png)

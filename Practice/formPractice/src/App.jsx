@@ -6,22 +6,23 @@ let InitialState = {
   email: "",
   age: "",
   gender: "",
-  role:[]
+  subscribe: false,
 };
 
-
 function App() {
-// eslint-disable-next-line no-unused-vars
   const [isInput, setIsInput] = useState(InitialState);
 
   const HandleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
+
     const newValue = type === "checkbox" ? checked : value;
 
-    setIsInput((oldState)=>{return{
-      ...oldState,
-      [name] : newValue
-    }})
+    setIsInput((oldState) => {
+      return {
+        ...oldState,
+        [name]: newValue,
+      };
+    });
   };
 
   const HandleSubmit = (event) => {
@@ -73,32 +74,16 @@ function App() {
           </select>
           <br />
           <br />
-          <label htmlFor="Role">Select Role</label>
-          <br />
-          <label htmlFor="Frontend">Frontend</label>
-          <input
-            type="checkbox"
-            name="role"
-            value="frontend"
-            checked={isInput.role.includes("frontend")}
-            onChange={HandleInputChange}
-          />
-          <label htmlFor="Backend">Backend</label>
-          <input
-            type="checkbox"
-            name="role"
-            value="backend"
-            checked={isInput.role.includes("backend")}
-            onChange={HandleInputChange}
-          />
-          <label htmlFor="Full Stack">Full Stack</label>
-          <input
-            type="checkbox"
-            name="role"
-            value="fullStack"
-             checked={isInput.role.includes("fullStack")}
-            onChange={HandleInputChange}
-          />
+
+          <div style={{display:"flex", justifyContent:"center", gap:"10px", textAlign:"center" }}>
+            <div><input
+              type="checkbox"
+              name="subscribe"
+              checked={isInput.subscribe}
+              onChange={HandleInputChange}
+            /></div>
+            <div>Subscribe to terms and condition</div>
+          </div>
           <br />
           <br />
           <input

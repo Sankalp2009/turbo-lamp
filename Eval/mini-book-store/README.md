@@ -11,6 +11,7 @@ react, useState, conditional rendering, css modules, props
 - The Submission should not contain spaces, for example /js-101 folder/eval will not work
 - Do not push node_modules and package_lock.json to github
 
+
 ```
  ✅ able to submit the app - 1 mark ( minimum score )
  ✅ should have basic structure- 1 marks
@@ -22,7 +23,7 @@ react, useState, conditional rendering, css modules, props
 ```
 
 ## Installation
-
+  
 - you can use any node version that works for you ( 14+ )
 - please make sure you do not push package-lock.json
 - Download and unzip the boilerplate
@@ -55,7 +56,7 @@ react, useState, conditional rendering, css modules, props
 7. Use CSS Modules to style the components and App. 
 
 **Note** 
-- Make sure you use only the given components and dont create new Components, files, folders of your own. Changing component name, file/folder structures might result in giving you zero marks
+- Make sure you use only the given components and don't create new Components, files, folders of your own. Changing component name, file/folder structures might result in giving you zero marks
 - Do Not Remove `data-testid="xxxx"` from anywhere, these are used by testing tools to test your code, removal of this will lead to low score.
 - Also make sure to cross check all the spellings and Case of Texts.
 - Some important Spellings are `Fictional Books`, `Non-Fiction Books`. Use these as section names.
