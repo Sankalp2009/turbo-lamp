@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debounce Vanilla</title>
+    <style>
+      #nav_container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+      }
+      #recipeContainer {
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .container {
+        width: 200px;
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav_container">
+      <h1>Debounce using Vanilla JS</h1>
+      <input
+        type="text"
+        id="search"
+        name="search"
+        placeholder="Search Data"
+      />
+      <div id="recipeContainer"></div>
+    </div>
+  </body>
+  <script>
+    console.log("Optimised Search Functionality");
+
+    // Procedure
+    // Create 2 separate function:
+    // 1:- Handling API Fetch
+    // 2:- Search Query
+    // 3:- Optimised Debounce Function
+    // API:-  'https://dummyjson.com/recipes'
+
+    async function SearchRecipe(query) {
+      try {
+        let Res = await fetch(
+          `https://dummyjson.com/recipes/search?q=${query}`,
+        );
+        let data = await Res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    async function main() {
+      let query = document.getElementById("search").value;
+      console.log(query);
+      let Res = await SearchRecipe(query);
+      console.log("recipe", Res?.recipes);
+      display(Res?.recipes);
+    }
+
+    function debounced(fn, delay) {
+      let timerID;
+      return function (...args) {
+        clearTimeout(timerID);
+        timerID = setTimeout(function () {
+          fn.apply(this, args);
+        }, delay);
+      };
+    }
+
+    function display(data) {
+      let container = document.getElementById("recipeContainer");
+      container.innerHTML = null;
+
+      if (!data) return false;
+
+      data &&
+        data.forEach((el) => {
+          let box = document.createElement("div");
+          box.classList.add("container");
+
+          let Image = document.createElement("img");
+          Image.setAttribute("src", el.image);
+
+          let Name = document.createElement("h3");
+          Name.innerText = el.name;
+
+          box.append(Image, Name);
+
+          container.append(box);
+        });
+    }
+
+    const debouncedMain = debounced(main, 300);
+
+    document.getElementById("search").addEventListener("input", debouncedMain);
+  </script>
+</html>

@@ -1,0 +1,75 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* 🔹 Product Grid */
+.Grid_card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Product Card */
+.card_buddy {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;     
+  height: auto;   
+  overflow: hidden;  /* ensures nothing overflows outside card */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background: #fff;
+}
+
+.card_buddy:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/* 🔹 Product Images */
+.card_buddy img {
+  width: 100%;
+  height: 180px;  
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Title */
+.card_content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 5px 0;
+  white-space: nowrap;       /* keep on one line */
+  overflow: hidden;          /* hide extra text */
+  text-overflow: ellipsis;   /* add ... if title too long */
+}
+
+/* Description */
+.card_content p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 5px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* show only 2 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.card_content .price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e53935; 
+}
+
+.icons{
+  font-size: x-large;
+}
