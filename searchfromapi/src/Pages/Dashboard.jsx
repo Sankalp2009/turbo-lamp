@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
-=======
-import React, { useState, useEffect } from "react";
->>>>>>> be3b245218aff0bb399577d1ce6a9373fa5cf049
 
 import Search from "../Components/Search.jsx";
 import Display from "../Components/Display.jsx";
