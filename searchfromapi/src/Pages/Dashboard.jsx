@@ -31,7 +31,7 @@ function Dashboard() {
       } else {
         setData([]);
       }
-    }, 300);
+    }, 500);
 
     return () => clearTimeout(timerID);
   }, [text]);
