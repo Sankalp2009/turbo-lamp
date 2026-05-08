@@ -1,0 +1,40 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.inner-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;     
+  height: auto;   
+  overflow: hidden;  /* ensures nothing overflows outside card */
+ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: transform 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background: #fff;
+}
+
+.inner-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.inner-card img {
+  width: 250px;
+  height: 250px;  
+  object-fit: contain;
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+}  
