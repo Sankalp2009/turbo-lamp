@@ -28,7 +28,6 @@ function Dashboard() {
     }
   };
 
-<<<<<<< HEAD
   useEffect(() => {
     const timerID = setTimeout(() => {
       if (text.trim()) {
@@ -54,28 +53,6 @@ function Dashboard() {
             </div>
           ))}
       </div>
-=======
-  function HandleChange(query) {
-    setText(query);
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (text) {
-        FetchQuery(text);
-      }
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [text]);
-
-  if (IsLoading) return <div>Loading</div>;
-
-  return (
-    <div>
-      <Search HandleChange={HandleChange} data={data} />
-      <Display data={data} />
->>>>>>> be3b245218aff0bb399577d1ce6a9373fa5cf049
     </div>
   );
 }
