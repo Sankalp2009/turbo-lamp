@@ -1,6 +1,6 @@
-# Search From API
+# Debounced API Search
 
-A small React + Vite project that implements a debounced search UI with live suggestions using the DummyJSON products search API.
+A small React project that implements a Debounced API Search with live suggestions using the DummyJSON products search API.
 
 ## Features
 
