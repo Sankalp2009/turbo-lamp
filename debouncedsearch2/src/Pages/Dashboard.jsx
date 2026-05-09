@@ -25,18 +25,9 @@ function Dashboard() {
       }
     }, 500)
 
-    // step2: clear previous timer
+    // step2: clear previous timer 
     return () => clearTimeout(timerID)
   }, [query])
-
-  // useEffect(() => {
-  //   setIsLoading(true)
-  //   getApi(query).then((data) => {
-  //     console.log(data)
-  //     setProducts(data?.products);
-  //   })
-  //   setIsLoading(false)
-  // }, [query]);
 
   return (
     <div id="nav_container">
