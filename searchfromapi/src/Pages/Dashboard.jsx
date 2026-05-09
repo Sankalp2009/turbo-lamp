@@ -16,7 +16,7 @@ function Dashboard() {
       let Res = await fetch(`https://dummyjson.com/products/search?q=${query}`);
       let Product = await Res.json();
       console.log(Product?.products);
-      setData(Product?.products);
+      setData(Product?.products );
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -52,5 +52,4 @@ function Dashboard() {
     </div>
   );
 }
-
 export default Dashboard;
