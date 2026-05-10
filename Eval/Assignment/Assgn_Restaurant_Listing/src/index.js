@@ -1,13 +1,14 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-
-import App from "./App";
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import AppContextProvider from './Context/AppContext.jsx'
+import App from './App'
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
 
 root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+  <BrowserRouter>
+    <AppContextProvider>
+      <App />
+    </AppContextProvider>
+  </BrowserRouter>
+)
