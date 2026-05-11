@@ -8,7 +8,7 @@ function Dashboard() {
   const { authState, Logout } = useContext(GlobalInfo)
   const [TotalPages, setTotalPages] = useState('')
   const [page, setPage] = useState(1)
-  const Limit = 10
+  const Limit = 15
   const FetchData = async () => {
     try {
       setIsLoading(true)

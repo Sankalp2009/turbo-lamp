@@ -637,7 +637,7 @@ describe("Home page functionality", () => {
   });
 });
 
-describe("Restaruant Page", () => {
+describe("Restaurant Page", () => {
   test("Restaurant page works correctly 1", async () => {
     fetchMock.once(
       JSON.stringify({
