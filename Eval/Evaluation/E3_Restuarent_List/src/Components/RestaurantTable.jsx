@@ -1,19 +1,20 @@
 import RestaurantCard from "./RestaurantCard";
 
-function RestaurantTable({product}) {
+function RestaurantTable({data}) {
   return (
     <table>
       <thead>
         <tr>
           <th>Name</th>
           <th>Rating</th>
+          <th>Votes</th>
           <th>Type</th>
           <th>Price Starts From</th>
         </tr>
       </thead>
       <tbody>
         {
-          product && product.map(el => (
+          data && data.map(el => (
                <RestaurantCard key={el.id} {...el} />
            ))
         }

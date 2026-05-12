@@ -1,19 +1,21 @@
 import Loader from '../Components/Loader'
 import { useState, useContext, useEffect } from 'react'
-import { GlobalInfo } from '../Context/AppContext'
+import { AppContext } from '../Context/AppContext'
 import { getRestaurantsList } from '../Services/API.js'
 import RestaurantTable from '../Components/RestaurantTable'
-
+import Pagination from '../Components/Pagination'
 function Dashboard() {
   // State Handling
   const [product, setProduct] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [FilteredData, setFilteredData] = useState([]);
-  const { authState, LogOut } = useContext(GlobalInfo);
+  const { authState, LogOut } = useContext(AppContext);
   const [IsLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const Limit = 10;
-
+const handlePageChange = (value) => {
+  setPage(value)
+}
   const HandleFilter = (e) => {
     const { value } = e.target
 
@@ -41,10 +43,10 @@ function Dashboard() {
         setIsLoading(false)
       })
       .catch((err) => {
-        console.log(error)
+        console.log(err)
         setIsLoading(false)
       })
-  }, [])
+  }, [page])
 
   return (
     <div>
@@ -55,14 +57,14 @@ function Dashboard() {
         </button>
         <p>
           Token:
-          <b data-testid="user-token">{authState?.token ?? ''}</b>
+          <b data-testid="user-token">{authState?.token ?? "No token"}</b>
         </p>
       </div>
       <br />
       <div>
         <select data-testid="filter-box" onChange={HandleFilter}>
           <option value="">All</option>
-          {[...new Set(product.map((el) => el.type))].map((type) => (
+          {[...new Set(product?.map((el) => el.type))].map((type) => (
             <option key={type} value={type}>
               {type
                 .split('_')
@@ -75,14 +77,19 @@ function Dashboard() {
       <br />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         {IsLoading && <Loader />}
-        {!IsLoading && product.length === 0 && <h3>No Results Found</h3>}
+        {!IsLoading && product?.length === 0 && <h3>No Results Found</h3>}
         {/* Restaurant Table, remember to show loading indicator when API is loading */}
-        <RestaurantTable product={FilteredData} />
+        <RestaurantTable data={FilteredData} />
       </div>
       <br />
-      <div data-testid="pagination-container">{/* Pagination */}</div>
+      <div data-testid="pagination-container">
+  <Pagination
+    currentPage={page}
+    totalPages={totalPages}
+    handlePageChange={handlePageChange}
+  />
+</div>
     </div>
   )
 }
-
 export default Dashboard

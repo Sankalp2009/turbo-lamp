@@ -375,12 +375,12 @@ test('Redirecting from Dashboard page to restaurant page works correctly', async
     await act(() => {
       fireEvent.click(submit)
     })
-
+await sleep(3000)
     const token = await findByTestId('user-token')
     expect(token).toHaveTextContent('ABCD')
   }
   {
-    await sleep(3000)
+    
     const items = await findAllByTestId('item')
 
     const { name } = RestaurantRowElements(items[0])

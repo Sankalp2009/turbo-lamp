@@ -11,12 +11,27 @@ export default function RestaurantCard({
 }) {
   return (
     <tr data-testid="item">
-      <td>
-        <Link to={`/restaurants/${id}`} data-testid="name">
+       <td
+        style={{
+          padding: '15px',
+          color: '#333',
+          fontWeight: '500',
+        }}
+      >
+        <Link
+          data-testid="name"
+          to={`/restaurants/${id}`}
+          style={{
+            color: '#667eea',
+            textDecoration: 'none',
+            fontWeight: '600',
+          }}
+        >
           {name}
         </Link>
       </td>
       <td data-testid="rating">{rating}</td>
+      <td data-testid="votes">{number_of_votes}</td>
       <td data-testid="type">
         {type
           .split('_')
