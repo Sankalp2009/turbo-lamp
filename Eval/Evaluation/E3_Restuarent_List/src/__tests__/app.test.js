@@ -637,34 +637,40 @@ describe("Home page functionality", () => {
   });
 });
 
-test('Restaurant page works correctly 1', async () => {
-  fetchMock.once(
-    JSON.stringify({
-      data: {
-        id: 1,
-        name: 'Shute',
-        type: 'fine_dining',
-        rating: 4.5,
-        number_of_votes: 588,
-        price_starts_from: 925,
-        image: 'https://picsum.photos/200',
-      },
-    })
-  )
+describe("Restaurant Page", () => {
+  test("Restaurant page works correctly 1", async () => {
+    fetchMock.once(
+      JSON.stringify({
+        data: {
+          id: 1,
+          name: "Shute",
+          type: "fine_dining",
+          rating: 4.5,
+          number_of_votes: 588,
+          price_starts_from: 925,
+          image: "https://picsum.photos/200",
+        },
+      })
+    );
 
-  const history = createMemoryHistory()
-  const { debug, getByTestId, getAllByTestId, findByTestId, findAllByTestId } =
-    render(
-      <MemoryRouter history={history} initialEntries={['/restaurants/1']}>
+    const history = createMemoryHistory();
+    const {
+      debug,
+      getByTestId,
+      getAllByTestId,
+      findByTestId,
+      findAllByTestId,
+    } = render(
+      <MemoryRouter history={history} initialEntries={["/restaurants/1"]}>
         <AppContextProvider>
           <SingleRestaurantPage />
         </AppContextProvider>
       </MemoryRouter>
-    )
-  const container = await findByTestId('restaurant-container')
-  const { name, type, rating, votes, price, image } =
-    getRestaurantPageElements(container)
-  await waitFor(() => {
+    );
+    const container = await findByTestId("restaurant-container");
+    const { name, type, rating, votes, price, image } =
+      getRestaurantPageElements(container);
+    await waitFor(() => {
     expect(name).toHaveTextContent('Shute')
     expect(type).toHaveTextContent('fine_dining')
     expect(rating).toHaveTextContent('4.5')
@@ -672,37 +678,42 @@ test('Restaurant page works correctly 1', async () => {
     expect(price).toHaveTextContent('925')
     expect(image).toHaveAttribute('src', 'https://picsum.photos/200')
     expect(image).toHaveAttribute('alt', 'Shute')
-  })
-  global.score += 1
-})
-test('Restaurant page works correctly 2', async () => {
-  fetchMock.once(
-    JSON.stringify({
-      data: {
-        id: 15,
-        name: 'Grellier',
-        type: 'fine_dining',
-        rating: 4,
-        number_of_votes: 123,
-        price_starts_from: 475,
-        image: 'https://picsum.photos/200',
-      },
-    })
-  )
+  });
+    global.score += 1; // restaurant entity pages work correctly
+  });
+  test("Restaurant page works correctly 2", async () => {
+    fetchMock.once(
+      JSON.stringify({
+        data: {
+          id: 15,
+          name: "Grellier",
+          type: "fine_dining",
+          rating: 4,
+          number_of_votes: 123,
+          price_starts_from: 475,
+          image: "https://picsum.photos/200",
+        },
+      })
+    );
 
-  const history = createMemoryHistory()
-  const { debug, getByTestId, getAllByTestId, findByTestId, findAllByTestId } =
-    render(
-      <MemoryRouter history={history} initialEntries={['/restaurants/15']}>
+    const history = createMemoryHistory();
+    const {
+      debug,
+      getByTestId,
+      getAllByTestId,
+      findByTestId,
+      findAllByTestId,
+    } = render(
+      <MemoryRouter history={history} initialEntries={["/restaurants/15"]}>
         <AppContextProvider>
           <SingleRestaurantPage />
         </AppContextProvider>
       </MemoryRouter>
-    )
-  const container = await findByTestId('restaurant-container')
-  const { name, type, rating, votes, price, image } =
-    getRestaurantPageElements(container)
-  await waitFor(() => {
+    );
+    const container = await findByTestId("restaurant-container");
+    const { name, type, rating, votes, price, image } =
+      getRestaurantPageElements(container);
+     await waitFor(() => {
     expect(name).toHaveTextContent('Grellier')
     expect(type).toHaveTextContent('fine_dining')
     expect(rating).toHaveTextContent('4')
@@ -711,9 +722,9 @@ test('Restaurant page works correctly 2', async () => {
     expect(image).toHaveAttribute('src', 'https://picsum.photos/200')
     expect(image).toHaveAttribute('alt', 'Grellier')
   })
-  global.score += 1
-})
-
+    global.score += 1; // restaurant entity pages work correctly
+  });
+});
 
 afterAll(() => {
   console.log("Max marks is, 24");
