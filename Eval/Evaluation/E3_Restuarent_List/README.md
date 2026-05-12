@@ -1,4 +1,4 @@
-# React - Restaurant Listing
+# React - Restaurant Listing / same as Assignment Restaurant Listing
 
 ## Submission Instrions [Please note]
 
