@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Search from "../Components/Search.jsx";
 import Display from "../Components/Display.jsx";
@@ -16,7 +16,7 @@ function Dashboard() {
       let Res = await fetch(`https://dummyjson.com/products/search?q=${query}`);
       let Product = await Res.json();
       console.log(Product?.products);
-      setData(Product?.products);
+      setData(Product?.products );
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -24,28 +24,32 @@ function Dashboard() {
     }
   };
 
-  function HandleChange(query) {
-    setText(query);
-  }
-
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (text) {
+    const timerID = setTimeout(() => {
+      if (text.trim()) {
         FetchQuery(text);
+      } else {
+        setData([]);
       }
-    }, 1000);
+    }, 500);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timerID);
   }, [text]);
-
-  if (IsLoading) return <div>Loading</div>;
 
   return (
     <div>
-      <Search HandleChange={HandleChange} data={data} />
-      <Display data={data} />
+      <Search text={text} setText={setText} data={data} />
+      {IsLoading && <h3>Loading...</h3>}
+      {!IsLoading && data.length === 0 && <h3>No Results Found</h3>}
+      <div id="recipeContainer">
+        {data &&
+          data?.map((el) => (
+            <div key={el.id} className="container ">
+              <Display {...el} />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
-
 export default Dashboard;

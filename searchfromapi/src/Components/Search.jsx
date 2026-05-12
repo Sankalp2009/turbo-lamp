@@ -1,43 +1,63 @@
-import React from "react";
+import { useState } from "react";
 import "./Search.css";
 
-function Search({ HandleChange, data }) {
-  const [IsInput, setIsInput] = React.useState("");
-  const [showSuggestions, setShowSuggestions] = React.useState(false);
+function Search({ text, setText, data }) {
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
-  function HandleInput(e) {
-    const value = e.target.value;
-    setIsInput(value);
-    setShowSuggestions(value.length > 0);
-    HandleChange(value);
+  function handleSuggestionClick(product) {
+    setText(product.title);
+    setShowSuggestions(false);
   }
 
-  function HandleSuggestionClick(product) {
-    setIsInput(product.title);
-    setShowSuggestions(false);
-    HandleChange(product.title);
+  function handleChange(e) {
+    const value = e.target.value;
+
+    setText(value);
+
+    // Show suggestions while typing
+    setShowSuggestions(value.trim().length > 0);
   }
 
   return (
     <div className="search-container">
       <input
         type="text"
-        value={IsInput}
+        value={text}
         name="search"
         placeholder="Enter Search Data"
-        onChange={HandleInput}
-        onFocus={() => IsInput && setShowSuggestions(true)}
-        onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+        onChange={handleChange}
+        onFocus={() => {
+          if (text.trim() && data.length > 0) {
+            setShowSuggestions(true);
+          }
+        }}
+        onBlur={() => {
+          // Delay so click event can fire
+          setTimeout(() => {
+            setShowSuggestions(false);
+          }, 200);
+        }}
       />
+
       {showSuggestions && data.length > 0 && (
         <ul className="suggestions-dropdown">
           {data.slice(0, 8).map((product) => (
-            <li key={product.id} onClick={() => HandleSuggestionClick(product)}>
+            <li
+              key={product.id}
+              onClick={() => handleSuggestionClick(product)}
+            >
               <div className="suggestion-item">
-                <img src={product.thumbnail} alt={product.title} />
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  width="50"
+                />
+
                 <div className="suggestion-text">
                   <p className="product-title">{product.title}</p>
-                  <p className="product-price">${product.price}</p>
+                  <p className="product-price">
+                    ${product.price}
+                  </p>
                 </div>
               </div>
             </li>
