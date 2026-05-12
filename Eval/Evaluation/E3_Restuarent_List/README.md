@@ -29,7 +29,7 @@
   ✓ All Filters are present
   ✓ Filters work correctly
   ✓ Redirecting from Dashboard page to restaurant page works correctly
- ✅ Restaruant Page - 2 mark
+ ✅ Restaurant Page - 2 mark
   ✓ Restaurant page works correctly 1
   ✓ Restaurant page works correctly 2
 ```
@@ -170,7 +170,7 @@ npm run test
 
 #### `Home.jsx`
 
-- You dont need to update anything here
+- You don't need to update anything here
 
 #### `Login.jsx`
 
@@ -227,7 +227,7 @@ npm run test
 - List all the restaurants from the API page wise
 - You need to display filters here in the select option with `[data-testid="filter-box"]`
   - By default you need to show All, ( keep an option with the text All)
-  - All the options in filter should be changed from snake_case into words with first letter capitalised
+  - All the options in filter should be changed from snake_case into words with first letter capitalized
     - for example fine_dining => Fine Dining, ethnic => Ethnic, fast_food => Fast Food
     - you can decide how to do this
     - this should also be the case in the table data

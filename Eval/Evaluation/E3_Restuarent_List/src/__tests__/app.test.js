@@ -672,13 +672,15 @@ describe("Restaruant Page", () => {
     const container = await findByTestId("restaurant-container");
     const { name, type, rating, votes, price, image } =
       getRestaurantPageElements(container);
-    expect(name).toHaveTextContent("Shute");
-    expect(type).toHaveTextContent("Fine Dining");
-    expect(rating).toHaveTextContent("4.5");
-    expect(votes).toHaveTextContent("588");
-    expect(price).toHaveTextContent("925");
-    expect(image).toHaveAttribute("src", "https://picsum.photos/200");
-    expect(image).toHaveAttribute("alt", "Shute");
+    await waitFor(() => {
+    expect(name).toHaveTextContent('Shute')
+    expect(type).toHaveTextContent('fine_dining')
+    expect(rating).toHaveTextContent('4.5')
+    expect(votes).toHaveTextContent('588')
+    expect(price).toHaveTextContent('925')
+    expect(image).toHaveAttribute('src', 'https://picsum.photos/200')
+    expect(image).toHaveAttribute('alt', 'Shute')
+  });
     global.score += 1; // restaurant entity pages work correctly
   });
   test("Restaurant page works correctly 2", async () => {
@@ -715,13 +717,15 @@ describe("Restaruant Page", () => {
     const container = await findByTestId("restaurant-container");
     const { name, type, rating, votes, price, image } =
       getRestaurantPageElements(container);
-    expect(name).toHaveTextContent("Grellier");
-    expect(type).toHaveTextContent("Fine Dining");
-    expect(rating).toHaveTextContent("4");
-    expect(votes).toHaveTextContent("123");
-    expect(price).toHaveTextContent("475");
-    expect(image).toHaveAttribute("src", "https://picsum.photos/200");
-    expect(image).toHaveAttribute("alt", "Grellier");
+     await waitFor(() => {
+    expect(name).toHaveTextContent('Grellier')
+    expect(type).toHaveTextContent('fine_dining')
+    expect(rating).toHaveTextContent('4')
+    expect(votes).toHaveTextContent('123')
+    expect(price).toHaveTextContent('475')
+    expect(image).toHaveAttribute('src', 'https://picsum.photos/200')
+    expect(image).toHaveAttribute('alt', 'Grellier')
+  })
     global.score += 1; // restaurant entity pages work correctly
   });
 });

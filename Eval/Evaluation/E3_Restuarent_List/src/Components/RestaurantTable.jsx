@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 
-function RestaurantTable() {
+function RestaurantTable({product}) {
   return (
     <table>
       <thead>
@@ -12,7 +12,12 @@ function RestaurantTable() {
         </tr>
       </thead>
       <tbody>
-        <RestaurantCard />
+        {
+          product && product.map(el => (
+               <RestaurantCard key={el.id} {...el} />
+           ))
+        }
+
       </tbody>
     </table>
   );
