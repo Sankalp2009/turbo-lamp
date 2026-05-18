@@ -1,0 +1,26 @@
+.home{
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  font-size: larger;
+}
+
+a{
+  text-decoration:underline;
+  color: green;
+}
+
+.Form{
+  border: 1px solid red;
+  margin: auto;
+  width: 200px; 
+  padding: 20px;
+  text-align: center;
+}
+
+input, button{
+  width: 70%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
