@@ -59,7 +59,7 @@ function Login() {
           name="Username"
           value={IsInput.Username}
           onChange={HandleChange}
-          placeholder="Enter Email"
+          placeholder="Enter Username"
         />
         <br />
         <br />
