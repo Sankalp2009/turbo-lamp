@@ -1,26 +1,54 @@
-.home{
+.home {
   width: 200px;
   margin: auto;
   text-align: center;
   font-size: larger;
 }
 
-a{
-  text-decoration:underline;
+a {
+  text-decoration: underline;
   color: green;
 }
 
-.Form{
-  border: 1px solid red;
+.Form {
   margin: auto;
-  width: 200px; 
+  width: 200px;
   padding: 20px;
   text-align: center;
 }
 
-input, button{
-  width: 70%;
-  padding: 5px;
+input {
+  width: 80%;
+  padding: 3px;
   border-radius: 5px;
   border: 1px solid black;
+}
+
+/* Product section css */
+.Outer {
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inner{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+img{
+  width: 70%;
+  object-fit: contain;
 }

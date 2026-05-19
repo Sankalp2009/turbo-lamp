@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react'
 import axios from 'axios'
-import { AuthContext } from '../Context/AppContext'
+import { AuthContext } from '../Context/AuthContext'
 import { Action_Type } from '../Utils/ActionCreators'
+import {useNavigate} from 'react-router-dom'
 const InitialState = {
   Username: '',
   password: '',
@@ -10,7 +11,7 @@ const InitialState = {
 function Login() {
   const [IsInput, setIsInput] = useState(InitialState)
   const { dispatch } = useContext(AuthContext)
-
+  const Nav = useNavigate();
   const HandleChange = (e) => {
     const { name, value } = e.target
     setIsInput((PrevState) => ({
@@ -39,8 +40,9 @@ function Login() {
       if(token){
         dispatch({
         type:Action_Type.LOGIN_SUCCESS,
-        payload: token
+        payload: token || ""
       })
+      Nav ('/dashboard')
       }
     } catch (error) {
       console.log('err', error)
@@ -72,9 +74,7 @@ function Login() {
         />
         <br />
         <br />
-        <button type="submit" value="submit">
-          Submit
-        </button>
+        <input type="submit" value="submit" />
       </form>
     </div>
   )

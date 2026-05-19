@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { AuthContext } from '../Context/AppContext'
+import { AuthContext } from '../Context/AuthContext'
 import { Navigate } from 'react-router-dom'
 function PrivateRoute({ children }) {
   const { state } = useContext(AuthContext)
 
-  if (!state.IsAuth && !state.token)
+  if (!state.isAuth && !state.token)
     return <Navigate to="/login" replace={true} />
   return children
 }
