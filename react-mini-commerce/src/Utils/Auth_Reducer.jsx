@@ -21,6 +21,12 @@ const AuthReducer = (currentState, action) => {
         isLoading: false,
         token: null,
       }
+    case Action_Type.LOGOUT:
+      return {
+        ...currentState,
+        isAuth: false,
+        token: null,
+      }
     default:
       return currentState
   }

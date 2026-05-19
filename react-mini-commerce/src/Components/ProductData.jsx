@@ -7,6 +7,7 @@ function ProductData({ data }) {
           <ProductCard key={el.id} {...el} />
         ))}
       </div>
+      <button>Add to cart</button>
     </div>
   )
 }

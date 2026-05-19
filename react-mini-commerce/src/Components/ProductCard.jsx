@@ -22,6 +22,7 @@ function ProductCard({id, thumbnail, title, price}) {
           color: '#27ae60',
           fontWeight: '600',
         }}>Price:{price}</p>
+        <button>Add to cart</button>
     </div>
   )
 }
