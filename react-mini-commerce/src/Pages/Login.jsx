@@ -1,16 +1,16 @@
 import { useState, useContext } from 'react'
 import axios from 'axios'
 import { AuthContext } from '../Context/AppContext'
-import {Action_Type} from '../Utils/ActionCreators'
+import { Action_Type } from '../Utils/ActionCreators'
 const InitialState = {
-  email: '',
+  Username: '',
   password: '',
 }
 
 function Login() {
   const [IsInput, setIsInput] = useState(InitialState)
-  const { dispatch } = useContext(AuthContext);
-  
+  const { dispatch } = useContext(AuthContext)
+
   const HandleChange = (e) => {
     const { name, value } = e.target
     setIsInput((PrevState) => ({
@@ -18,26 +18,32 @@ function Login() {
       [name]: value,
     }))
   }
-
+  console.log(IsInput)
   const HandleSubmit = async (event) => {
     event.preventDefault()
     try {
-      dispatch({type:Action_Type.LOGIN_REQUEST})
-      let data = await axios.post('https://reqres.in/api/login', IsInput, {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': 'reqres_cb2ec0f9a86845e39f6ea142bb3d20d8',
+      dispatch({ type: Action_Type.LOGIN_REQUEST })
+      let data = await axios.post(
+        'https://dummyjson.com/auth/login',
+        {
+          username: IsInput.Username,
+          password: IsInput.password,
         },
-      })
-      console.log(data?.data)
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      console.log(data)
       dispatch({
         type:Action_Type.LOGIN_SUCCESS,
-        payload:data?.data?.token
+        payload:data?.data?.accessToken
       })
     } catch (error) {
-      console.log(error);
+      console.log('err', error)
       dispatch({
-        type:Action_Type.LOGIN_FAILURE
+        type: Action_Type.LOGIN_FAILURE,
       })
     }
   }
@@ -47,9 +53,9 @@ function Login() {
       <h1>Login</h1>
       <form onSubmit={HandleSubmit}>
         <input
-          type="email"
-          name="email"
-          value={IsInput.email}
+          type="text"
+          name="Username"
+          value={IsInput.Username}
           onChange={HandleChange}
           placeholder="Enter Email"
         />
