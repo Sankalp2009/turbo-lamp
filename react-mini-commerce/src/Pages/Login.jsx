@@ -35,11 +35,13 @@ function Login() {
           },
         }
       )
-      console.log(data)
-      dispatch({
+      const token = data?.data?.accessToken ?? "";
+      if(token){
+        dispatch({
         type:Action_Type.LOGIN_SUCCESS,
-        payload:data?.data?.accessToken
+        payload: token
       })
+      }
     } catch (error) {
       console.log('err', error)
       dispatch({
