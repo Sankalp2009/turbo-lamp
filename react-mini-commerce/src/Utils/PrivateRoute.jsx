@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 function PrivateRoute({ children }) {
   const { state } = useContext(AuthContext)
 
-  if (!state.IsAuth || !state.token)
+  if (!state.IsAuth && !state.token)
     return <Navigate to="/login" replace={true} />
   return children
 }

@@ -1,20 +1,21 @@
 
+import { Action_Type } from '../Utils/ActionCreators'
 const reducer = (currentState, action)=>{
   const { type, payload } = action
   switch (type) {
-    case "LOGIN_REQUEST":
+    case Action_Type.LOGIN_REQUEST:
       return{
         ...currentState,
         IsLoading:true
       }
-    case "LOGIN_SUCCESS":
+    case Action_Type.LOGIN_SUCCESS:
       return {
         ...currentState,
         IsAuth:true,
         IsLoading:false,
         token:payload
       }
-    case "LOGIN_FAILURE":   
+    case Action_Type.LOGIN_FAILURE:   
     return {
         ...currentState,
         IsAuth:false,
