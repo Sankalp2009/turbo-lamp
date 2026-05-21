@@ -7,6 +7,6 @@ function PrivateRoute({ children }) {
   if (!state.isAuth && !state.token)
     return <Navigate to="/login" replace={true} />
   return children
-}
+} 
 
 export default PrivateRoute
