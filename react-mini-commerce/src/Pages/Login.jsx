@@ -25,45 +25,66 @@ function Login() {
     }))
   }
 
-  const HandleSubmit = async (event) => {
-    event.preventDefault()
+ const getValidToken = (response) => {
+  return response?.data?.accessToken || null
+}
 
-    try {
+const HandleSubmit = async (event) => {
+
+  event.preventDefault()
+
+  try {
+
+    dispatch({
+      type: Action_Type.LOGIN_REQUEST,
+    })
+
+    const response = await axios.post(
+      'https://dummyjson.com/auth/login',
+      {
+        username: IsInput.Username,
+        password: IsInput.password,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+
+    const token = getValidToken(response)
+
+    // SUCCESS CASE
+
+    if (token) {
+
       dispatch({
-        type: Action_Type.LOGIN_REQUEST,
+        type: Action_Type.LOGIN_SUCCESS,
+        payload: token,
       })
 
-      let data = await axios.post(
-        'https://dummyjson.com/auth/login',
-        {
-          username: IsInput.Username,
-          password: IsInput.password,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      Nav('/dashboard')
 
-      const token = data?.data?.accessToken ?? ''
+    } else {
 
-      if (token) {
-        dispatch({
-          type: Action_Type.LOGIN_SUCCESS,
-          payload: token,
-        })
-
-        Nav('/dashboard')
-      }
-    } catch (error) {
-      console.log(error)
+      // FAILURE CASE
 
       dispatch({
         type: Action_Type.LOGIN_FAILURE,
       })
+  
+      console.error('Invalid token received')
     }
+
+  } catch (error) {
+
+    console.log(error)
+
+    dispatch({
+      type: Action_Type.LOGIN_FAILURE,
+    })
   }
+}
 
   return (
     <div className="login-page">
