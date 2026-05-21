@@ -26,11 +26,15 @@ function Header() {
     <div>
       <div
         style={{
+          border:"1px solid black",
+          boxSizing:"border-box",
           width: '100%',
           height: '50px',
           display: 'flex',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
           alignItems: 'center',
+          
+          padding:"10px"
         }}
       >
         {Links.map((el) => (
@@ -40,6 +44,9 @@ function Header() {
             </Link>
           </div>
         ))}
+        <div>
+          <input type="text" />
+        </div>
         <div>
           {!state.isAuth ? (
             <Link to="/login">
