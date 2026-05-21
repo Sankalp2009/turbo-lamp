@@ -4,10 +4,9 @@ function ProductData({ data }) {
     <div>
       <div className="container">
         {data?.map((el) => (
-          <ProductCard key={el.id} {...el} />
+          <ProductCard key={el.id} product={el} />
         ))}
       </div>
-      <button>Add to cart</button>
     </div>
   )
 }

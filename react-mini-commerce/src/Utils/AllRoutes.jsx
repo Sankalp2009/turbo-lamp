@@ -5,6 +5,7 @@ import Single from '../Pages/Single'
 import Login from '../Pages/Login'
 import Dashboard from '../Pages/Dashboard'
 import PrivateRoute from './PrivateRoute'
+import Cart from '../Pages/Cart'
 function AllRoutes() {
   return (
     <Routes>
@@ -15,6 +16,14 @@ function AllRoutes() {
         element={
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <Cart />
           </PrivateRoute>
         }
       />

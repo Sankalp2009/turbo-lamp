@@ -1,6 +1,12 @@
+import { useContext } from 'react'
 import {Link} from 'react-router-dom'
+import { Action_Type } from '../Utils/ActionCreators'
+import { CartContext } from '../Context/CartContext'
+function ProductCard({product}) {
+  
+  const { dispatch } = useContext(CartContext)
+  const {id, thumbnail, title, price} = product;
 
-function ProductCard({id, thumbnail, title, price}) {
   return (
     <div className='inner'>
       <img src={thumbnail} alt={title}  />
@@ -22,7 +28,14 @@ function ProductCard({id, thumbnail, title, price}) {
           color: '#27ae60',
           fontWeight: '600',
         }}>Price:{price}</p>
-        <button>Add to cart</button>
+        <button 
+        onClick={()=>{
+          dispatch({
+            type:Action_Type.ADD_TO_CART,
+            payload: product || []
+          })
+        }}
+        >Add to cart</button>
     </div>
   )
 }

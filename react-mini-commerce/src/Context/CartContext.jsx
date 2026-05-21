@@ -8,9 +8,9 @@ const InitialState = {
 }
 
 function CartContextProvider({ children }) {
-  const [state, dispatch] = useReducer(CartReducer, InitialState)
+  const [CartState, dispatch] = useReducer(CartReducer, InitialState)
 
-  const Value = { state, dispatch }
+  const Value = { CartState, dispatch }
 
   return <CartContext.Provider value={Value}>{children}</CartContext.Provider>
 }
