@@ -12,7 +12,8 @@ function ProductCard({ product }) {
     id,
     thumbnail,
     title,
-    price
+    price,
+   category
   } = product
 
   return (
@@ -39,6 +40,10 @@ function ProductCard({ product }) {
         >
           {title}
         </Link>
+        
+        <h3>
+          <span style={{color:"red"}}>Category</span>: {category}
+        </h3>
 
         <p className="product-price">
           ₹ {price}
