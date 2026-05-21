@@ -11,9 +11,7 @@ const CartReducer = (currentState, action) => {
     case Action_Type.REMOVE_CART:
       return {
         ...currentState,
-        isAuth: true,
-        isLoading: false,
-        token: payload,
+        cart: currentState.cart.filter(item => item.id !== payload),
       }
     default:
       return currentState

@@ -1,6 +1,10 @@
+import {useContext} from 'react'
 import { Trash } from 'lucide-react'
-
-function CartPage({ title, thumbnail, price }) {
+import { Action_Type } from '../Utils/ActionCreators'
+import { CartContext } from '../Context/CartContext'
+function CartPage({id, title, thumbnail, price }) {
+  
+  const { dispatch } = useContext(CartContext);
 
   return (
     <div className="cartContainer">
@@ -14,7 +18,12 @@ function CartPage({ title, thumbnail, price }) {
         <p>Price: ${price}</p>
       </div>
 
-      <button className="deleteBtn">
+      <button className="deleteBtn" onClick={()=>{
+          dispatch({
+            type:Action_Type.REMOVE_CART,
+            payload:id
+          })
+        }}>
         <Trash size={20} />
       </button>
 

@@ -41,7 +41,7 @@ function Header() {
           </div>
         ))}
         <div>
-          {state.isAuth ? (
+          {!state.isAuth ? (
             <Link to="/login">
               <button
                 style={{
