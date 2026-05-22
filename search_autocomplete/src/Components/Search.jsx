@@ -1,20 +1,31 @@
+// Search.jsx
 import { useState, useEffect } from 'react'
 import SearchInput from './SearchInput'
-import { Spinner, Box } from '@chakra-ui/react'
+import { Spinner, Box, Flex, Text } from '@chakra-ui/react'
+
 function Search() {
   const [search, setSearch] = useState('')
   const [searchData, setSearchData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)
+  const [cache, setCache] = useState({})
 
   const handleKeyDown = (e) => {
+
     if (e.key === 'ArrowDown') {
       setSelectedIndex((prev) =>
         prev < searchData.length - 1 ? prev + 1 : prev
       )
-    } else if (e.key === 'ArrowUp') {
-      setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev))
-    } else if (e.key === 'Enter') {
+    }
+
+    else if (e.key === 'ArrowUp') {
+      setSelectedIndex((prev) =>
+        prev > 0 ? prev - 1 : prev
+      )
+    }
+
+    else if (e.key === 'Enter') {
+
       if (selectedIndex >= 0 && searchData[selectedIndex]) {
         setSearch(searchData[selectedIndex].title)
         setSearchData([])
@@ -23,67 +34,128 @@ function Search() {
   }
 
   useEffect(() => {
-    // Fetch Part
-    const FetchSearch = async () => {
+
+    const fetchSearch = async () => {
+
+      const trimmedSearch = search.trim()
+
+      if (!trimmedSearch) {
+        setSearchData([])
+        return
+      }
+
+      // Cache Check
+      if (cache[trimmedSearch]) {
+        setSearchData(cache[trimmedSearch])
+        return
+      }
+
       try {
+
         setIsLoading(true)
-        const query = encodeURIComponent(search.trim());
-        let Res = await fetch(
+
+        const query = encodeURIComponent(trimmedSearch)
+
+        const res = await fetch(
           `https://dummyjson.com/products/search?q=${query}`
         )
-        let data = await Res.json()
-        console.log(data?.products)
+
+        const data = await res.json()
+
         setSearchData(data?.products || [])
-        setIsLoading(false)
+
+        // Save to cache
+        setCache((prev) => ({
+          ...prev,
+          [trimmedSearch]: data?.products || []
+        }))
+
       } catch (error) {
         console.log(error)
+        setSearchData([])
+      } finally {
         setIsLoading(false)
       }
     }
 
-    // Debounce Optimization Part
+    // Debounce
     const timerID = setTimeout(() => {
-      if (search.trim()) {
-        FetchSearch()
-      } else {
-        setSearchData([])
-      }
+      fetchSearch()
     }, 500)
 
     return () => clearTimeout(timerID)
-  }, [search])
+
+  }, [search, cache])
 
   return (
-    <div>
+    <div className="searchWrapper">
+
       <SearchInput
         search={search}
         setSearch={setSearch}
         handleKeyDown={handleKeyDown}
+        setSelectedIndex={setSelectedIndex}
       />
+
       {isLoading && (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="md"
-        />
+        <Box className="loaderContainer">
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.400"
+            size="lg"
+          />
+        </Box>
       )}
 
       {!isLoading && search && searchData.length === 0 && (
-        <Box p={2}>No products found</Box>
+        <Box className="emptyState">
+          No products found
+        </Box>
       )}
+
       {searchData.length > 0 && (
-        <Box border="1px solid gray">
+        <Box className="dropdownContainer">
+
           {searchData.map((item, index) => (
-            <Box
+
+            <Flex
               key={item.id}
-              bg={selectedIndex === index ? 'gray.200' : 'white'}
-              p={2}
+              className="cartContainer"
+              bg={
+                selectedIndex === index
+                  ? 'rgba(255,255,255,0.15)'
+                  : 'transparent'
+              }
+              onClick={() => {
+                setSearch(item.title)
+                setSearchData([])
+              }}
             >
-              {item.title}
-            </Box>
+
+              <Box className="cartImage">
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                />
+              </Box>
+
+              <Box className="cartContent">
+
+                <Text className="productTitle">
+                  {item.title}
+                </Text>
+
+                <Text className="productPrice">
+                  ${item.price}
+                </Text>
+
+              </Box>
+
+            </Flex>
           ))}
+
         </Box>
       )}
     </div>

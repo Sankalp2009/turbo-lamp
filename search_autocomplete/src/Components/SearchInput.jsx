@@ -1,17 +1,35 @@
+// SearchInput.jsx
+
 import { Input, Box } from '@chakra-ui/react'
-function SearchInput({search, setSearch, handleKeyDown}) {
+
+function SearchInput({
+  search,
+  setSearch,
+  handleKeyDown,
+  setSelectedIndex
+}) {
+
   return (
-    <Box p={4}>
+    <Box>
+
       <Input
-      variant='outline' 
-      type='text'
-      name="search"
-      value={search}
-      onChange={(e)=>setSearch(e.target.value)}
-      onKeyDown={handleKeyDown}
-      placeholder='Search Products' 
-      size='lg'
+        variant="unstyled"
+        type="text"
+        name="search"
+        value={search}
+
+        onChange={(e) => {
+          setSearch(e.target.value)
+          setSelectedIndex(-1)
+        }}
+
+        onKeyDown={handleKeyDown}
+
+        placeholder="Search luxury products..."
+
+        className="searchInput"
       />
+
     </Box>
   )
 }

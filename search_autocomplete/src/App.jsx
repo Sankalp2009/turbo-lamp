@@ -1,5 +1,6 @@
 import Search from './Components/Search'
 import { Text, Box } from '@chakra-ui/react'
+import './App.css'
 function App() {
 
   return (
