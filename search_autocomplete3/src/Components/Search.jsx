@@ -40,8 +40,15 @@ function Search() {
         setIsLoading(false);
       }
     };
+    
+    const timerID = setTimeout(() => {
+      FetchSearch();
+    }, 300);
 
-    FetchSearch();
+    return ()=>{
+      clearTimeout(timerID);
+    }
+
   }, [query]);
 
   return (
