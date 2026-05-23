@@ -1,55 +1,62 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useState, useEffect } from "react";
-import SearchInput from "./SearchInput";
+import { useState, useEffect } from 'react'
+import SearchInput from './SearchInput'
 
 function Search() {
-  const [query, setQuery] = useState("");
-  const [suggestion, setSuggestion] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [iserror, setIsError] = useState(null);
+  const [query, setQuery] = useState('')
+  const [suggestion, setSuggestion] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [iserror, setIsError] = useState(null)
 
   useEffect(() => {
-    const trimmed = encodeURIComponent(query.trim());
+    const trimmed = encodeURIComponent(query.trim())
+
+    const controller = new AbortController()
 
     if (!trimmed || trimmed.length < 2) {
-      setSuggestion([]);
-      setIsLoading(false);
-      setIsError(null);
-      return;
+      setSuggestion([])
+      setIsLoading(false)
+      setIsError(null)
+      return
     }
 
     const FetchSearch = async () => {
       try {
-        setIsLoading(true);
-
+        setIsLoading(true)
+        setIsError(null)
         const res = await fetch(
-          `https://dummyjson.com/products/search?q=${trimmed}`
-        );
+          `https://dummyjson.com/products/search?q=${trimmed}`,
+          {
+            signal: controller.signal,
+          }
+        )
 
-        const data = await res.json();
+        const data = await res.json()
 
         if (!data?.products) {
-          throw new Error("Data Not Found");
+          throw new Error('Data Not Found')
         }
 
-        setSuggestion(data.products || []);
+        setSuggestion(data.products || [])
       } catch (error) {
-        console.error(error);
-        setIsError(error.message);
+        if (error.name !== 'AbortError') {
+          console.log(error)
+          setIsError(error.message)
+        }
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    
-    const timerID = setTimeout(() => {
-      FetchSearch();
-    }, 300);
-
-    return ()=>{
-      clearTimeout(timerID);
     }
 
-  }, [query]);
+    const timerID = setTimeout(() => {
+      FetchSearch()
+    }, 300)
+
+    return () => {
+      clearTimeout(timerID)
+      controller.abort()
+    }
+  }, [query])
 
   return (
     <div className="search_page">
@@ -69,12 +76,15 @@ function Search() {
         <div className="results_container">
           {suggestion?.map((el) => (
             <div className="result_item" key={el.id}>
-              <div>
+              <div className="image_wrapper">
                 <img src={el.thumbnail} alt={el.title} />
               </div>
               <div className="product_info">
                 <h3>{el.title}</h3>
-                <p>${el.price}</p>
+                <div className="meta_row">
+                  <p className="price">${el.price}</p>
+                  <span className="rating">★ {el.rating}</span>
+                </div>
               </div>
               <span className="category">{el.category}</span>
             </div>
@@ -82,7 +92,7 @@ function Search() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Search;
+export default Search
