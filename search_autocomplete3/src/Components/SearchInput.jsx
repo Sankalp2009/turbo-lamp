@@ -1,9 +1,16 @@
 import React from 'react'
 
-function SearchInput() {
+function SearchInput({ query, setQuery }) {
   return (
     <div>
-      <input className='searchInput' type="text" name="search" placeholder='Enter Search...' />
+      <input
+        className="searchInput"
+        type="text"
+        name="search"
+        value={query}
+        onChange={(e)=>{setQuery(e.target.value)}}
+        placeholder="Enter Search..."
+      />
     </div>
   )
 }
