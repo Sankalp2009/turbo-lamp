@@ -1,0 +1,42 @@
+{
+  "hash": "2355d963",
+  "configHash": "c63cfeef",
+  "lockfileHash": "98ec0869",
+  "browserHash": "76af934c",
+  "optimized": {
+    "@chakra-ui/react": {
+      "src": "../../node_modules/@chakra-ui/react/dist/esm/index.mjs",
+      "file": "@chakra-ui_react.js",
+      "fileHash": "bae31143",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "3e9af3d1",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "3aa05911",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "d3bfef41",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "react-CPHlPgwa": {
+      "file": "react-CPHlPgwa.js",
+      "isDynamicEntry": false
+    },
+    "react-dom-BFlLM68c": {
+      "file": "react-dom-BFlLM68c.js",
+      "isDynamicEntry": false
+    }
+  }
+}

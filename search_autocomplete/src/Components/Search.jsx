@@ -10,7 +10,8 @@ function Search() {
   const [isLoading, setIsLoading] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)
   const [cache, setCache] = useState({})
-
+  
+  
   const handleKeyDown = (e) => {
 
     if (e.key === 'ArrowDown') {
