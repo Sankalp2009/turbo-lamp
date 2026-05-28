@@ -8,8 +8,10 @@ const InitialState = {
 function Login() {
   
   const [isInput, setIsInput] = useState(InitialState)
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(null);
   
-  const Nav = useNavigate();
+  const nav = useNavigate();
   
   const HandleChange = (e) => {
     const { name, value } = e.target
@@ -18,14 +20,41 @@ function Login() {
       [name]: value,
     }))
   }
+  
+  
 
-  const HandleSubmit = (event) => {
+  const HandleSubmit = async(event) => {
     event.preventDefault()
-    console.log('form Submit')
+
+  if(!isInput.username || !isInput.password){
+      setIsInput(InitialState);
+      setIsError(null);
+      return
+    }
+
+    try {
+      setIsLoading(true);
+      let url = 'https://dummyjson.com/auth/login';
+      let res = await axios.post(url,isInput);
+      if(!res.status) throw new Error("Something is Wrong");
+      const token = res?.data?.accessToken || null;
+      if(token){
+        nav('/dashboard');
+      }else{
+        setIsError("Token is Missing");
+      }
+      
+    } catch (error) {
+      setIsError(error.message)
+    }finally{
+      setIsLoading(false);
+    }
   }
 
   return (
     <div className="Form">
+      {isLoading && (<h2>Loading</h2>)}
+      {isError && (<h2>{isError}</h2>)}
       <form onSubmit={HandleSubmit}>
         <input
           type="text"
