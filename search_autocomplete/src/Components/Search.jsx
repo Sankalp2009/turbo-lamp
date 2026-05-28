@@ -163,7 +163,7 @@ function Search() {
       fetchSearch();
     }, 300);
   
-    return () => {
+    return () => {  
       clearTimeout(timerID);
       controller.abort();
     };
