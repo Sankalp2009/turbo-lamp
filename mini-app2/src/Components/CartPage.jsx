@@ -1,12 +1,26 @@
 import CartCard from './CartCard'
-function CartPage({data}) {
+
+function CartPage({ data = [] }) {
+
+  const totalPrice = data.reduce((acc, item) => {
+    return acc + Math.floor(item.price);
+  }, 0);
+
   return (
     <div className='CartOuter'>
+
+      <h2>Total Price: $ {totalPrice}</h2>
+
       {
-        data.map(el=>
-          <CartCard key={el.id} {...el} />
+        data.map((el, arr) =>
+          <CartCard
+            key={el.id}
+            arr={arr}
+            product={el}
+          />
         )
       }
+
     </div>
   )
 }
