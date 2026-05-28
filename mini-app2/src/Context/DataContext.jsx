@@ -8,10 +8,10 @@ const InitialState = {
   data: [],
 }
 
-function DataContext({ children }) {
+function DataContextProvider({ children }) {
   const [stateData, dispatch] = useReducer(Reducer, InitialState)
   const Value = { stateData, dispatch }
   return <GlobalData.Provider value={Value}>{children}</GlobalData.Provider>
 }
 
-export default DataContext
+export default DataContextProvider
