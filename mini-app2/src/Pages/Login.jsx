@@ -1,16 +1,19 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import { GlobalAuth } from '../Context/AuthContext'
+import { Action_Type } from '../Helpers/Action_Creators'
+
 const InitialState = {
   username: '',
   password: '',
 }
+
 function Login() {
   
   const [isInput, setIsInput] = useState(InitialState)
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(null);
-  
+  const {state, dispatch} = useContext(GlobalAuth);
+  console.log(state);
   const nav = useNavigate();
   
   const HandleChange = (e) => {
@@ -27,34 +30,49 @@ function Login() {
     event.preventDefault()
 
   if(!isInput.username || !isInput.password){
-      setIsInput(InitialState);
-      setIsError(null);
+      alert("FIELDS ARE REQUIRED TO LOGIN")
       return
     }
 
     try {
-      setIsLoading(true);
+      dispatch({
+        type: Action_Type.Login_Request
+      })
       let url = 'https://dummyjson.com/auth/login';
       let res = await axios.post(url,isInput);
       if(!res.status) throw new Error("Something is Wrong");
       const token = res?.data?.accessToken || null;
       if(token){
+        dispatch({
+          type: Action_Type.Login_Success,
+          payload:{
+            Token: token || null
+          }
+        })
         nav('/dashboard');
       }else{
-        setIsError("Token is Missing");
+        dispatch({
+          type: Action_Type.Login_Failure,
+          payload:{
+            error: "Token is Missing"
+          }
+        })
       }
       
     } catch (error) {
-      setIsError(error.message)
-    }finally{
-      setIsLoading(false);
+      dispatch({
+        type: Action_Type.Login_Failure,
+        payload:{
+          error: error.message
+        }
+      })
     }
   }
 
   return (
     <div className="Form">
-      {isLoading && (<h2>Loading</h2>)}
-      {isError && (<h2>{isError}</h2>)}
+      {state.isLoading && (<h2>Loading</h2>)}
+      {state.isError && (<h2>{state.isError}</h2>)}
       <form onSubmit={HandleSubmit}>
         <input
           type="text"
