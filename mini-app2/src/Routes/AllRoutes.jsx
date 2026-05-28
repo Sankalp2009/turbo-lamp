@@ -6,7 +6,7 @@ import Dashboard from '../Pages/Dashboard'
 import Single from '../Pages/Single'
 import Login from '../Pages/Login'
 import PageNotFound from '../Pages/PageNotFound'
-
+import PrivateRoute from '../Helpers/PrivateRoute'
 function AllRoutes() {
   return (
     <Routes>
@@ -14,8 +14,22 @@ function AllRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/single/:id" element={<Single />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/single/:id"
+        element={
+          <PrivateRoute>
+            <Single />
+          </PrivateRoute>
+        }
+      />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
