@@ -11,7 +11,7 @@ const Reducer = (currentState, action) => {
     case 'Remove_Cart':
       return {
         ...currentState,
-        data: payload.Data,
+        Cart_Data:currentState.Cart_Data.filter(item => item.id !== payload)
       }
 
     default:
