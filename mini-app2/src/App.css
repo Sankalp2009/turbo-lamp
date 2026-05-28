@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .Home{
   width: 200px;
   height: auto;
@@ -18,12 +21,13 @@
 }
 
 .Header_top{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
   font-size: larger;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Header{
@@ -32,6 +36,23 @@
   align-items: center;
   gap: 20px;
 }
+
+.inner_Header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px 0px 10px;
+}
+
+.Auth_Header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+
 a{
   text-decoration: none;
   color: green;
@@ -217,4 +238,105 @@ a{
 
 .add-cart-btn:active {
   transform: scale(0.98);
+}
+/* Cart */
+
+.cart-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  color: black;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  background-color: green;
+  color: white;
+
+  border-radius: 50%;
+
+  min-width: 18px;
+  height: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 11px;
+  font-weight: bold;
+}
+/* Cart setup */
+
+.CartOuter{
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
+  padding: 20px;
+}
+
+.cartContainer{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  background-color: #fff;
+}
+
+/* Image section */
+
+.cartImage img{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* Content section */
+
+.cartContent{
+  flex: 1;
+}
+
+.cartContent h3{
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.cartContent p{
+  color: #27ae60;
+  font-weight: 600;
+}
+
+/* Delete button */
+
+.deleteBtn{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+  border-radius: 50%;
+
+  transition: 0.2s;
+}
+
+.deleteBtn:hover{
+  background-color: #f3f3f3;
 }
