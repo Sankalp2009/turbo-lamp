@@ -45,7 +45,7 @@ function ProductCard({ product }) {
         </h3>
 
         <p className="product-price">
-          ₹ {price}
+          ₹ {Math.floor(price)}
         </p>
 
         <button
