@@ -2,9 +2,11 @@ import { useContext } from 'react'
 import { FaRegTrashAlt } from "react-icons/fa";
 import { GlobalCart } from '../Context/CartContext'
 import { Action_Type } from '../Helpers/Action_Creators'
-function CartCard({id, title, thumbnail, price }) {
-  
+function CartCard({product}) {
+
   const {dispatch } = useContext(GlobalCart);
+  const {id, title, thumbnail, price } = product;
+  
 
   return (
     <div className="cartContainer">
@@ -15,7 +17,7 @@ function CartCard({id, title, thumbnail, price }) {
 
       <div className="cartContent">
         <h3>{title}</h3>
-        <p>Price: ${price}</p>
+        <p>Price:$ {Math.floor(price)}</p>
       </div>
 
       <button className="deleteBtn" onClick={()=>{

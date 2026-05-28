@@ -7,7 +7,6 @@ import { FaCartShopping } from "react-icons/fa6";
 function Header() {
   const { state, dispatch } = useContext(GlobalAuth)
   const {CartState } = useContext(GlobalCart);
-  console.log(CartState?.Cart_Data);
 
   const length = CartState?.Cart_Data.length || 0;
 
