@@ -2,7 +2,7 @@
   "hash": "5d0afbad",
   "configHash": "088b4868",
   "lockfileHash": "fc13e0f8",
-  "browserHash": "adb29006",
+  "browserHash": "e81a3720",
   "optimized": {
     "axios": {
       "src": "../../node_modules/axios/index.js",
@@ -33,6 +33,12 @@
       "file": "react_jsx-dev-runtime.js",
       "fileHash": "b57048f2",
       "needsInterop": true
+    },
+    "swr": {
+      "src": "../../node_modules/swr/dist/index/index.mjs",
+      "file": "swr.js",
+      "fileHash": "761ec23f",
+      "needsInterop": false
     }
   },
   "chunks": {
