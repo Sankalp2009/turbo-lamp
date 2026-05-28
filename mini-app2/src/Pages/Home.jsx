@@ -4,10 +4,10 @@ function Home() {
   return (
     <div className='Home'>
           <Link to="/login" style={{color:"green"}}>
-          <h3>Login</h3>
+          <button className='home_button'>Login</button>
           </Link>
           <Link to="/dashboard" style={{color:"green"}}>
-          <h3>Home</h3>
+          <button className='home_button'>Home</button>
           </Link>
     </div>
   )

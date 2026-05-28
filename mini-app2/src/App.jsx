@@ -1,10 +1,14 @@
 import './App.css'
 import AllRoutes from './Routes/AllRoutes'
+import Header from './Components/Header'
 function App() {
   return (
-    <>
-      <AllRoutes />
-    </>
+    <div>
+      <Header />
+      <div className='app_home'>
+            <AllRoutes />
+      </div>
+    </div>
   )
 }
 

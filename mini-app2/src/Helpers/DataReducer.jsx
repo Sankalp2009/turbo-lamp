@@ -2,32 +2,23 @@ const Reducer = (currentState, action) => {
   const { type, payload } = action
 
   switch (type) {
-    case 'Login_Request':
+    case 'Get_Request':
       return {
         ...currentState,
         isLoading: true,
       }
-    case 'Login_Success':
+    case 'Get_Success':
       return {
         ...currentState,
         isLoading: false,
-        isAuth: true,
-        token: payload.Token,
+        data: payload.Data,
       }
-    case 'Login_Failure':
+    case 'Get_Failure':
       return {
         ...currentState,
         isLoading: false,
-        isAuth: false,
-        token: null,
+        data: [],
         isError: payload.error,
-      }
-    case 'Logout':
-      return {
-        ...currentState,
-        isLoading: false,
-        isAuth: false,
-        token: null,
       }
 
     default:
