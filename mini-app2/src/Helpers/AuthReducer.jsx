@@ -1,11 +1,6 @@
-const InitialState = {
-  isAuth: false,
-  isLoading: false,
-  isError: null,
-  token: null,
-}
 
-const Reducer = (currentState = InitialState, action) => {
+
+const Reducer = (currentState, action) => {
   const { type, payload } = action
 
   switch (type) {
@@ -19,7 +14,7 @@ const Reducer = (currentState = InitialState, action) => {
         ...currentState,
         isLoading: false,
         isAuth: true,
-        token: payload.token,
+        token: payload.Token,
       }
     case 'Login_Failure':
       return {

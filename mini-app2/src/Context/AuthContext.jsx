@@ -2,11 +2,18 @@
 import  { createContext, useReducer } from 'react'
 import Reducer  from '../Helpers/AuthReducer'
 export const GlobalAuth = createContext(null)
-
+const InitialState = {
+  isAuth: false,
+  isLoading: false,
+  isError: null,
+  token: null,
+}
 function AuthContextProvider({ children }) {
-  const [state, dispatch] = useReducer(Reducer)
-  const value = { state, dispatch }
-  return <GlobalAuth.Provider value={value}>{children}</GlobalAuth.Provider>
+  const [state, dispatch] = useReducer(Reducer, InitialState)
+  const Value = { state, dispatch }
+  return (
+    <GlobalAuth.Provider value={Value}>{children}</GlobalAuth.Provider>
+  )
 }
 
 export default AuthContextProvider
