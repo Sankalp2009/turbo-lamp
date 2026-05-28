@@ -3,7 +3,41 @@
   height: auto;
   margin: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.home_button{
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+  color: green;
+  background-color: mistyrose;
+  border-radius: 10px;
+}
+
+.Header_top{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.Header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+a{
+  text-decoration: none;
+  color: green;
+}
+.app_home{
+  width: 70%;
+  height: 100%;
+  margin: auto;
 }

@@ -1,5 +1,3 @@
-
-
 const Reducer = (currentState, action) => {
   const { type, payload } = action
 
@@ -17,6 +15,14 @@ const Reducer = (currentState, action) => {
         token: payload.Token,
       }
     case 'Login_Failure':
+      return {
+        ...currentState,
+        isLoading: false,
+        isAuth: false,
+        token: null,
+        isError: payload.error,
+      }
+    case 'Logout':
       return {
         ...currentState,
         isLoading: false,
