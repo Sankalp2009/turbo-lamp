@@ -7,7 +7,6 @@ function CartCard({product}) {
   const {dispatch } = useContext(GlobalCart);
   const {id, title, thumbnail, price } = product;
   
-
   return (
     <div className="cartContainer">
 
