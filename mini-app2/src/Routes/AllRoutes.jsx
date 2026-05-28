@@ -7,6 +7,7 @@ import Single from '../Pages/Single'
 import Login from '../Pages/Login'
 import PageNotFound from '../Pages/PageNotFound'
 import PrivateRoute from '../Helpers/PrivateRoute'
+import Cart from '../Pages/Cart'
 function AllRoutes() {
   return (
     <Routes>
@@ -27,6 +28,14 @@ function AllRoutes() {
         element={
           <PrivateRoute>
             <Single />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <Cart />
           </PrivateRoute>
         }
       />
