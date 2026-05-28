@@ -6,7 +6,7 @@ const Reducer = (currentState, action) => {
     case 'Add_to_Cart':
       return {
         ...currentState,
-        isLoading: true,        Cart_Data:[...currentState.Cart_Data, payload]
+       Cart_Data:[...currentState.Cart_Data, payload]
       }
     case 'Remove_Cart':
       return {

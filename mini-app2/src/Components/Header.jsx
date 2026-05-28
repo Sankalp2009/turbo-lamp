@@ -1,9 +1,15 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { GlobalAuth } from '../Context/AuthContext'
+import { GlobalCart } from '../Context/CartContext'
 import { Action_Type } from '../Helpers/Action_Creators'
+import { FaCartShopping } from "react-icons/fa6";
 function Header() {
   const { state, dispatch } = useContext(GlobalAuth)
+  const {CartState } = useContext(GlobalCart);
+  console.log(CartState?.Cart_Data);
+
+  const length = CartState?.Cart_Data.length || 0;
 
   const Links = [
     {
@@ -22,6 +28,7 @@ function Header() {
 
   return (
     <div className="Header_top">
+      <div className='inner_Header'>
       <div className="Header">
         {Links.map((el) => (
           <Link key={el.path} to={el.path}>
@@ -29,11 +36,20 @@ function Header() {
           </Link>
         ))}
       </div>
-      <div>
+      <div className="cart-wrapper">
+              <Link to="/cart">
+                <FaCartShopping className="cart-icon" />
+              </Link>
+              <span className="cart-count">{length}</span>
+            </div>
+
+      </div>
+      <div className='Auth_Header'>
         {!state.isAuth ? (
           <Link to="/login">
             <h3>Login</h3>
           </Link>
+
         ) : (
           <button
             onClick={() => {
