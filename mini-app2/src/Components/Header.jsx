@@ -58,7 +58,7 @@ function Header() {
                   <h3>{item.title}</h3>
                 </div>
               ))}
-          </div>
+          </div> 
         </div>
 
         <div className="cart-wrapper">
